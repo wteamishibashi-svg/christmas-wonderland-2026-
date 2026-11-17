@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081a3f">
+<meta name="format-detection" content="telephone=no">
+<title>Christmas Event｜12/13（日）</title>
+<meta name="description" content="12/13（日）みんなで楽しむクリスマスイベント！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Christmas Event｜12/13（日）">
+<meta property="og:description" content="みんなで楽しむクリスマスイベント！">
+<meta property="og:url" content="https://wteamishibashi-svg.github.io/christmas-wonderland-2026-/">
+<meta property="og:image" content="https://wteamishibashi-svg.github.io/christmas-wonderland-2026-/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" href="fonts/fredoka.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/mochiy.woff2" crossorigin>
+<style>
+/* ============================================================
+   Christmas Wonderland 2026
+   Layout idea: スマホ1カラムの「縦にめくる絵本」。夜空 → 絵本の紙 → もみの木の森 → パステルの牧場 → 夜のイルミネーション。
+   ============================================================ */
+:root{
+  --red:#D92F32; --red-d:#8f1b22;
+  --green:#176B45; --green-d:#0d4a30;
+  --navy:#123A75; --night:#081a3f;
+  --gold:#F4C75B; --gold-d:#b7862a;
+  --snow:#FFF9F0; --pink:#F8D8E7;
+  --ink:#2b2340; --wood:#8a5a2b;
+  --f-en:"Fredoka","Mochiy Pop One","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --f-pop:"Mochiy Pop One","Fredoka","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  --pw:min(100vw,480px); --u:calc(var(--pw) / 100);
+  color-scheme:only light;
+}
+@font-face{font-family:"Fredoka";src:url(fonts/fredoka.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Mochiy Pop One";src:url(fonts/mochiy.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Zen Maru Gothic";src:url(fonts/zenmaru-m.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Zen Maru Gothic";src:url(fonts/zenmaru-b.woff2) format("woff2");font-weight:700;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden;background:var(--night)}
+body{margin:0;position:relative;overflow-x:hidden;background:var(--night);color:var(--ink);font-family:var(--f-body);font-weight:500;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:12px}
+svg{display:block}
+.page{position:relative;max-width:480px;margin:0 auto;overflow:hidden;background:var(--snow)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#snow{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:40}
+.fx{position:absolute;left:0;top:0;width:100%;height:0;pointer-events:none;z-index:60}
+.fx i{position:absolute;display:block;width:22px;height:22px;margin:-11px 0 0 -11px}
+.fx i svg{width:100%;height:100%}
+.fx b{position:absolute;display:block;transform:translate(-50%,-100%);background:#fff;color:var(--ink);font:400 13px/1.3 var(--f-pop);padding:7px 12px;border-radius:16px;white-space:nowrap;box-shadow:0 3px 0 rgba(8,26,63,.25)}
+.fx b::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;margin-left:-6px;background:#fff;transform:rotate(45deg);border-radius:2px}
+html.js .sec:not(.live) *{animation-play-state:paused!important}
+
+/* ---------- characters ---------- */
+.chr{position:relative;display:block;flex:none;height:var(--h);width:calc(var(--h)*var(--ar));padding:0;border:0;background:none;cursor:pointer}
+.chr span{position:absolute;left:0;top:0;width:100%;height:100%;display:block;transform-origin:50% 100%}
+.chr img,.chr svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;-webkit-user-select:none;user-select:none}
+.chr svg{overflow:visible}
+.chr-arm{animation:wave 4.4s ease-in-out infinite;animation-delay:var(--wd,0s)}
+@keyframes wave{0%,50%,100%{transform:rotate(0)}58%,74%,90%{transform:rotate(var(--wa))}66%,82%{transform:rotate(calc(var(--wa)*-.3))}}
+.tapped .chr-arm{animation:wavenow .9s ease-in-out}
+@keyframes wavenow{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(calc(var(--wa)*1.35))}40%,80%{transform:rotate(calc(var(--wa)*-.4))}}
+.tapped .chr-tap{animation:tap-hop .75s cubic-bezier(.3,.6,.4,1)}
+@keyframes tap-hop{0%{transform:none}18%{transform:scale(1.08,.9)}45%{transform:translateY(-14%) scale(.96,1.06) rotate(-3deg)}70%{transform:translateY(0) scale(1.05,.94)}100%{transform:none}}
+.lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);animation:blink var(--bd,5s) linear infinite;animation-delay:var(--bl,0s)}
+@keyframes blink{0%,93%,100%{transform:scaleY(0)}95.5%,97%{transform:scaleY(1)}}
+.tw{animation:tw 1.6s ease-in-out infinite alternate}
+.tw2{animation-delay:-.6s;animation-duration:2.1s}.tw3{animation-delay:-1.1s;animation-duration:1.3s}
+@keyframes tw{from{opacity:.35}to{opacity:1}}
+.topstar{transform-box:fill-box;transform-origin:50% 55%;animation:topstar 2.4s ease-in-out infinite alternate}
+@keyframes topstar{from{transform:rotate(-9deg) scale(.94)}to{transform:rotate(9deg) scale(1.06)}}
+.dangle{transform-box:fill-box;transform-origin:50% 0;animation:dangle 2.2s ease-in-out infinite alternate}
+@keyframes dangle{from{transform:rotate(-5deg)}to{transform:rotate(6deg)}}
+.pom{transform-box:fill-box;transform-origin:-60% -60%;animation:dangle 1.7s ease-in-out infinite alternate}
+
+.chr-robot .chr-idle{animation:idle-robot 2.6s steps(1) infinite}
+@keyframes idle-robot{0%,100%{transform:rotate(-2.2deg)}25%{transform:rotate(0)}50%{transform:rotate(2.2deg)}75%{transform:rotate(0)}}
+.chr-bird .chr-idle{animation:idle-bob 2.2s ease-in-out infinite alternate}
+@keyframes idle-bob{from{transform:translateY(0)}to{transform:translateY(-3.5%)}}
+.chr-penguin .chr-idle{animation:idle-waddle 1.9s ease-in-out infinite alternate}
+@keyframes idle-waddle{from{transform:rotate(-3.2deg)}to{transform:rotate(3.2deg)}}
+.chr-panda .chr-idle{animation:idle-sway 3.2s ease-in-out infinite alternate}
+@keyframes idle-sway{from{transform:rotate(-1.6deg) scale(1,1)}to{transform:rotate(1.6deg) scale(1.012,.99)}}
+.chr-rabbit .chr-idle{animation:idle-hop 2.4s ease-in-out infinite}
+@keyframes idle-hop{0%,55%,100%{transform:none}63%{transform:scale(1.05,.94)}76%{transform:translateY(-7%) scale(.97,1.04)}90%{transform:scale(1.03,.97)}}
+.chr-squirrel .chr-idle{animation:idle-jig 3s ease-in-out infinite}
+@keyframes idle-jig{0%,60%,100%{transform:none}66%{transform:translateY(-4%) rotate(-3deg)}72%{transform:none}78%{transform:translateY(-4%) rotate(3deg)}84%{transform:none}}
+
+/* ---------- 01 hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:500px;max-height:900px;overflow:hidden;color:var(--snow);
+  background:linear-gradient(180deg,#06153a 0%,#0c2a63 34%,#123A75 58%,#3467ab 84%,#86aede 100%);
+  --fh:min(calc(var(--u)*45),26.5vh);--sy:0}
+@supports (height:1svh){.hero{--fh:min(calc(var(--u)*45),26.5svh)}}
+.hero .stars{position:absolute;left:0;top:0;width:100%;height:78%;transform:translate3d(0,calc(var(--sy)*.42px),0)}
+.title{position:relative}
+.moon{position:absolute;z-index:-1;right:-1%;bottom:2%;width:.82em;height:.82em;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fffdf2 0 30%,#fdeeb9 62%,#f4d57e 100%);box-shadow:0 0 0 .14em rgba(253,238,185,.09),0 0 .7em .16em rgba(253,238,185,.32);text-shadow:none}
+.village{position:absolute;left:0;width:100%;bottom:calc(var(--fh)*.84);transform:translate3d(0,calc(var(--sy)*.2px),0)}
+.village svg{width:100%;height:auto}
+.garland{position:absolute;left:0;top:0;width:100%;padding-top:env(safe-area-inset-top,0px);z-index:5}
+.garland svg{width:100%;height:auto;overflow:visible}
+.hero-copy{position:absolute;left:0;top:0;width:100%;bottom:calc(var(--fh)*1.9);padding:calc(env(safe-area-inset-top,0px) + calc(var(--u)*10.5)) 16px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:min(calc(var(--u)*3),1.7svh);z-index:4;transform:translate3d(0,calc(var(--sy)*.1px),0)}
+.title{font-family:var(--f-en);font-weight:700;font-size:min(calc(var(--u)*17),10.6vh);font-size:min(calc(var(--u)*17),10.6svh);line-height:.96;text-align:center;letter-spacing:.005em;color:var(--snow);text-shadow:0 .045em 0 var(--gold),0 .09em 0 #cf9c33,0 .16em .22em rgba(3,12,38,.6)}
+.title .w{display:block;white-space:nowrap}
+.title .l{display:inline-block;transform:translateY(var(--y)) rotate(var(--r));animation:letter-in .7s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(.2s + var(--i)*.055s)}
+@keyframes letter-in{from{opacity:0;transform:translateY(-.7em) rotate(calc(var(--r)*5)) scale(.5)}}
+.date{position:relative;display:inline-flex;align-items:baseline;gap:.08em;margin-top:.1em;padding:.08em .5em .1em .62em;background:var(--red);border:3px solid var(--gold);border-radius:999px;color:#fff;font-family:var(--f-en);font-weight:700;font-size:min(calc(var(--u)*10.4),6.4vh);font-size:min(calc(var(--u)*10.4),6.4svh);line-height:1.15;transform:rotate(-2.5deg);box-shadow:0 .1em 0 var(--red-d),0 .22em .4em rgba(3,12,38,.45);animation:pop-in .6s cubic-bezier(.3,1.5,.5,1) .95s both}
+.date .wd{font-family:var(--f-pop);font-size:.56em;transform:translateY(-.12em)}
+.date .yr{position:absolute;left:-.5em;top:-.62em;font-size:.36em;background:var(--gold);color:var(--red-d);padding:.05em .55em;border-radius:999px;transform:rotate(-7deg);box-shadow:0 2px 0 var(--gold-d)}
+@keyframes pop-in{from{opacity:0;transform:rotate(-12deg) scale(.4)}}
+.tagline{font-family:var(--f-pop);font-size:min(calc(var(--u)*4.75),3.1vh);font-size:clamp(15px,min(calc(var(--u)*4.75),3.1svh),22px);line-height:1.4;text-align:center;text-shadow:0 2px 0 rgba(3,12,38,.5);animation:fade-up .6s ease-out 1.25s both}
+@keyframes fade-up{from{opacity:0;transform:translateY(10px)}}
+.cast{position:absolute;left:0;bottom:0;width:100%;height:calc(var(--fh)*2);z-index:3}
+.mound{position:absolute;left:0;bottom:0;width:100%}
+.mound-back{height:calc(var(--fh)*1.2)}.mound-mid{height:calc(var(--fh)*.76)}.mound-front{height:calc(var(--fh)*.24)}.mound-fore{height:calc(var(--fh)*.13);z-index:9}
+.cast .chr{position:absolute;margin-left:calc(var(--h)*var(--ar)*-.5)}
+.cast .p-robot{left:15.5%;bottom:calc(var(--fh)*.07);--h:var(--fh)}
+.cast .p-panda{left:50%;bottom:calc(var(--fh)*.05);--h:calc(var(--fh)*.98)}
+.cast .p-squirrel{left:85%;bottom:calc(var(--fh)*.07);--h:var(--fh)}
+.cast .p-penguin{left:31.5%;bottom:calc(var(--fh)*.6);--h:calc(var(--fh)*.86)}
+.cast .p-rabbit{left:69.5%;bottom:calc(var(--fh)*.6);--h:calc(var(--fh)*.9)}
+.cast .p-bird{left:50%;bottom:calc(var(--fh)*1.03);--h:calc(var(--fh)*.8)}
+.hero .p-bird .chr-in{animation:in-swoop 1s cubic-bezier(.2,.8,.3,1.15) .5s both}
+@keyframes in-swoop{from{opacity:0;transform:translate(-120%,-90%) rotate(-28deg) scale(.6)}}
+.hero .p-penguin .chr-in{animation:in-slide 1s cubic-bezier(.2,.9,.3,1.1) .75s both}
+@keyframes in-slide{from{opacity:0;transform:translateX(-170%) rotate(-40deg)}}
+.hero .p-rabbit .chr-in{animation:in-hop 1.1s linear .95s both}
+@keyframes in-hop{0%{opacity:0;transform:translate(190%,0)}1%{opacity:1}25%{transform:translate(140%,-34%)}45%{transform:translate(95%,0)}65%{transform:translate(48%,-22%)}85%{transform:translate(8%,0) scale(1.05,.93)}100%{transform:none}}
+.hero .p-robot .chr-in{animation:in-rise .9s cubic-bezier(.3,1.4,.5,1) 1.15s both}
+@keyframes in-rise{from{opacity:0;transform:translateY(105%)}}
+.hero .p-panda .chr-in{animation:in-pop .8s cubic-bezier(.3,1.6,.5,1) 1.35s both}
+@keyframes in-pop{from{opacity:0;transform:scale(.2)}}
+.hero .p-squirrel .chr-in{animation:in-dash .8s cubic-bezier(.2,.9,.3,1.15) 1.55s both}
+@keyframes in-dash{from{opacity:0;transform:translateX(170%) rotate(24deg)}}
+.hint{position:absolute;left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));z-index:10;transform:translateX(-50%);font:400 11px/1 var(--f-pop);color:#5b79a8;display:flex;flex-direction:column;align-items:center;gap:2px;animation:hint 1.6s ease-in-out infinite alternate}
+.hint svg{width:16px;height:10px}
+@keyframes hint{from{transform:translate(-50%,-3px)}to{transform:translate(-50%,3px)}}
+
+.flake{position:absolute;z-index:6;width:46px;height:46px;margin:-23px;padding:0;border:0;background:none;cursor:pointer;animation:drift var(--d,9s) ease-in-out infinite alternate}
+.flake svg{width:var(--s,24px);height:var(--s,24px);margin:auto;animation:spin calc(var(--d,9s)*2.4) linear infinite}
+.flake.zap svg{animation:zap .7s cubic-bezier(.2,.7,.3,1)}
+@keyframes drift{from{transform:translate(-6px,-8px)}to{transform:translate(8px,12px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes zap{0%{transform:scale(1)}40%{transform:scale(1.7) rotate(160deg)}100%{transform:scale(1) rotate(360deg)}}
+
+/* ---------- 02 welcome ---------- */
+.welcome{position:relative;padding:34px 16px 0;background:var(--snow);background-image:radial-gradient(rgba(217,47,50,.07) 1.5px,transparent 2px),radial-gradient(rgba(23,107,69,.07) 1.5px,transparent 2px);background-size:34px 34px;background-position:0 0,17px 17px;text-align:center}
+.h-en{font-family:var(--f-en);font-weight:700;line-height:1.08;text-wrap:balance}
+.welcome .h-en{font-size:calc(var(--u)*8.2);color:var(--red)}
+.welcome .h-en small{display:block;font-size:.62em;color:var(--green);font-weight:600;margin-bottom:.1em}
+.book{position:relative;margin:22px auto 0;width:100%;max-width:400px;height:calc(var(--u)*60);max-height:290px;padding:7px;background:var(--red-d);border-radius:14px;box-shadow:0 10px 0 rgba(43,35,64,.14),0 0 0 3px var(--gold) inset;perspective:1100px}
+.book-in{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.pg{position:absolute;top:0;width:50%;height:100%;overflow:hidden}
+.pg-l{left:0;border-radius:8px 0 0 8px;background:#b9252c}
+.pg-r{right:0;border-radius:0 8px 8px 0;background:#fffdf7;display:flex;align-items:center;justify-content:center;box-shadow:inset 14px 0 18px -12px rgba(43,35,64,.28)}
+.pg-l svg,.leaf svg{width:100%;height:100%}
+.msg{font-family:var(--f-pop);font-size:clamp(15px,calc(var(--u)*5.1),23px);line-height:1.5;color:var(--red);text-align:center}
+.msg i{display:block;font-style:normal;color:var(--green)}
+.leaf{position:absolute;left:50%;top:0;width:50%;height:100%;padding:0;border:0;background:none;cursor:pointer;transform-origin:0 50%;transform-style:preserve-3d;transform:rotateY(-180deg);transition:transform 1.25s cubic-bezier(.45,.05,.2,1);z-index:2}
+.book.closed .leaf{transform:rotateY(0deg)}
+.leaf span{position:absolute;left:0;top:0;width:100%;height:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;background:#fffdf7}
+.leaf-f{border-radius:0 8px 8px 0}
+.leaf-b{transform:rotateY(180deg);border-radius:8px 0 0 8px;box-shadow:inset -14px 0 18px -12px rgba(43,35,64,.28)}
+.book-note{margin-top:14px;font:400 12px/1.4 var(--f-pop);color:#9a7f6a}
+.guides{position:relative;display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px;padding:0 4px;height:calc(var(--u)*44);--h:calc(var(--u)*38)}
+.ph{display:inline-block}
+.bubble{position:relative;align-self:center;white-space:nowrap;margin:0 2px 12%;padding:10px 13px;background:#fff;border:3px solid var(--ink);border-radius:22px;font:400 clamp(13px,calc(var(--u)*4),18px)/1.35 var(--f-pop);color:var(--ink);box-shadow:0 4px 0 rgba(43,35,64,.16)}
+.bubble::before{content:"";position:absolute;left:-11px;bottom:12px;width:16px;height:16px;background:#fff;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(38deg) skew(8deg);border-radius:0 0 0 5px}
+.firs{position:relative;margin:-10px -16px 0;z-index:2}
+.firs svg{width:100%;height:auto;margin-bottom:-1px}
+
+/* ---------- 03 play ---------- */
+.play{position:relative;background:var(--green);background-image:radial-gradient(rgba(255,249,240,.1) 2px,transparent 2.5px);background-size:46px 46px;padding:8px 16px 0}
+.play-head{text-align:center;color:var(--snow);padding:10px 0 26px}
+.play-head .h-en{font-size:calc(var(--u)*15);text-shadow:0 .05em 0 var(--gold),0 .1em 0 #cf9c33,0 .16em .2em rgba(5,40,24,.5);transform:rotate(-2deg)}
+.play-head p{margin-top:12px;font:400 clamp(15px,calc(var(--u)*4.4),19px)/1.4 var(--f-pop);color:#ffeab0}
+.cards{display:flex;flex-direction:column;gap:44px;list-style:none;margin:0;padding:0}
+.card{position:relative;border:5px solid var(--snow);border-radius:34px;background:var(--c-bg,#fff);color:var(--c-ink,var(--ink));box-shadow:0 12px 0 rgba(5,40,24,.35)}
+.scene-wrap{position:relative}
+.scene{display:block;position:relative;width:100%;padding:0;border:0;background:var(--s-bg,#cfe9f7);border-radius:28px 28px 0 0;overflow:hidden;cursor:pointer}
+.scene>svg{width:100%;height:auto}
+.no{position:absolute;left:14px;top:-18px;z-index:5;width:54px;height:62px;pointer-events:none}
+.no svg{width:100%;height:100%;overflow:visible}
+.tapchip{position:absolute;right:12px;top:12px;z-index:4;display:flex;align-items:center;gap:5px;padding:5px 11px 5px 8px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font:400 12px/1 var(--f-pop);box-shadow:0 3px 0 rgba(43,35,64,.18);pointer-events:none;animation:chip 1.4s ease-in-out infinite alternate}
+.tapchip svg{width:16px;height:16px}
+@keyframes chip{from{transform:scale(1)}to{transform:scale(1.07)}}
+.host{position:absolute;bottom:-16px;z-index:3;--h:calc(var(--u)*37)}
+.host-l{left:-4px}.host-r{right:-4px}
+.say{position:absolute;z-index:4;bottom:-15px;white-space:nowrap;padding:7px 13px;background:#fff;border:3px solid var(--ink);border-radius:18px;font:400 clamp(13px,calc(var(--u)*3.7),16px)/1.35 var(--f-pop);color:var(--ink);box-shadow:0 3px 0 rgba(43,35,64,.16)}
+.say-l{left:calc(var(--u)*30)}.say-r{right:calc(var(--u)*33)}
+.card-text{padding:30px 20px 24px}
+.card-text h3{font-family:var(--f-en);font-weight:700;font-size:calc(var(--u)*8.3);line-height:1.08;letter-spacing:.005em;text-wrap:balance}
+.card-text .ja{margin-top:8px;font:400 clamp(17px,calc(var(--u)*5),22px)/1.35 var(--f-pop)}
+.card-text .desc{margin-top:8px;font-size:15px;line-height:1.75;font-weight:700;opacity:.92}
+
+/* card 1 : ball toss */
+.c-toss{--c-bg:#fffdf7;--s-bg:#bfe6f7;border-radius:150px 150px 34px 34px}
+.c-toss .scene{border-radius:144px 144px 0 0}
+.c-toss .no{left:50%;margin-left:-27px;top:-30px}
+.c-toss .tapchip{top:44px;right:auto;left:19%}
+.c-toss h3{color:#1c6fb0}
+.basket{transform-origin:230px 150px}
+.basket.hit{animation:basket-hit .45s ease-out}
+@keyframes basket-hit{0%{transform:none}30%{transform:rotate(-4deg) translateY(3px)}65%{transform:rotate(3deg)}100%{transform:none}}
+/* card 2 : bingo */
+.c-bingo{--c-bg:var(--red);--c-ink:#fff}
+.c-bingo .scene{cursor:default;padding:26px 16px 46px 0;background:var(--red);background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.14) 0 14px,transparent 14px 28px);display:flex;justify-content:flex-end}
+.bingo{position:relative;width:64%;padding:10px 10px 12px;background:var(--snow);border-radius:18px;transform:rotate(2.5deg);box-shadow:0 8px 0 rgba(90,10,16,.45)}
+.bingo-h{display:flex;justify-content:center;gap:4px;margin-bottom:8px}
+.bingo-h span{flex:none;width:calc(var(--u)*8.6);height:calc(var(--u)*8.6);max-width:42px;max-height:42px;border-radius:50%;display:grid;place-items:center;font:700 calc(var(--u)*5)/1 var(--f-en);color:#fff}
+.bingo-h span:nth-child(1){background:var(--red)}.bingo-h span:nth-child(2){background:var(--green)}.bingo-h span:nth-child(3){background:#e2a11f}.bingo-h span:nth-child(4){background:#2f7fd1}.bingo-h span:nth-child(5){background:#e2609a}
+.bingo-g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cell{position:relative;aspect-ratio:1;min-height:44px;padding:0;border:2px solid #ead9bb;border-radius:12px;background:#fff;display:grid;place-items:center;cursor:pointer;transition:background .25s,border-color .25s,transform .15s}
+@supports not (aspect-ratio:1){.cell{height:calc(var(--u)*16)}}
+.cell:active{transform:scale(.93)}
+.cell svg{width:68%;height:68%}
+.cell::after{content:"";position:absolute;left:9%;top:9%;width:82%;height:82%;border:4px solid var(--red);border-radius:50%;opacity:0;transform:scale(1.7) rotate(-20deg)}
+.cell.on{background:#ffe9a6;border-color:var(--gold)}
+.cell.on::after{opacity:.9;transform:rotate(-12deg);transition:transform .28s cubic-bezier(.3,1.7,.5,1),opacity .15s}
+.cell.free{font:700 calc(var(--u)*3.9)/1 var(--f-en);color:var(--red);cursor:default}
+.cell.win{animation:win .5s ease-in-out infinite alternate}
+@keyframes win{from{box-shadow:0 0 0 0 rgba(244,199,91,0)}to{box-shadow:0 0 0 5px rgba(244,199,91,.95)}}
+.bingo-ban{position:absolute;left:2.5%;top:calc(var(--u)*17);z-index:3;padding:.1em .5em;border-radius:14px;background:var(--gold);color:var(--red-d);font:700 calc(var(--u)*6.4)/1.3 var(--f-en);border:3px solid #fff;box-shadow:0 5px 0 rgba(90,10,16,.45);transform:rotate(-10deg) scale(0);transition:transform .45s cubic-bezier(.3,1.8,.5,1);pointer-events:none}
+.is-bingo .bingo-ban{transform:rotate(-10deg) scale(1)}
+.c-bingo .tapchip{right:auto;left:12px;top:auto;bottom:-13px;left:calc(var(--u)*30)}
+.c-bingo .desc{opacity:1}
+/* card 3 : rudolph */
+.c-rudolph{--c-bg:#0e4a31;--c-ink:#fff;--s-bg:#123d2b}
+.c-rudolph h3{color:#ffd978}
+.nose{transform-box:fill-box;transform-origin:50% 50%}
+.run .nose{animation:nose-go 2.5s cubic-bezier(.45,.05,.3,1) both}
+@keyframes nose-go{0%{transform:translate(118px,62px) rotate(0)}10%{transform:translate(118px,62px) rotate(-10deg)}30%{transform:translate(96px,8px) rotate(30deg)}50%{transform:translate(42px,34px) rotate(-25deg)}68%{transform:translate(22px,-22px) rotate(15deg)}84%{transform:translate(0,0) scale(1.3,.75)}92%{transform:scale(.9,1.12)}100%{transform:none}}
+.nose-glow{transform-box:fill-box;transform-origin:50% 50%;animation:nglow 1.2s ease-in-out infinite alternate}
+.run .nose-glow{animation:nglow-in 2.6s linear both,nglow 1.2s ease-in-out 2.6s infinite alternate}
+@keyframes nglow{from{opacity:.2;transform:scale(.85)}to{opacity:.6;transform:scale(1.1)}}
+@keyframes nglow-in{0%,82%{opacity:0;transform:scale(.4)}100%{opacity:.2;transform:scale(.85)}}
+.run .trail{animation:trail 2.5s linear both}
+@keyframes trail{0%,5%{opacity:.9}70%,100%{opacity:.28}}
+.trail{opacity:.28}
+.rd-head{transform-origin:140px 240px}
+.run .rd-head{animation:rd-happy 3.4s ease-in-out both}
+@keyframes rd-happy{0%,62%{transform:none}66%{transform:scale(1.03,.96)}74%{transform:rotate(-5deg) translateY(-6px)}84%{transform:rotate(5deg) translateY(-3px)}100%{transform:none}}
+/* card 4 : keychain */
+.c-key{--c-bg:var(--pink);--s-bg:#fdeef5;--c-ink:#5a2a48}
+.c-key h3{color:#c2377a}
+.c-key .tapchip{top:auto;bottom:40px}
+.kc-swing{transform-origin:196px 58px;animation:kc-swing 2.4s ease-in-out infinite alternate}
+@keyframes kc-swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.kc-tap{transform-origin:196px 58px}
+.kc-tap.go{animation:kc-big 1.6s ease-out}
+@keyframes kc-big{0%{transform:none}14%{transform:rotate(24deg)}32%{transform:rotate(-18deg)}50%{transform:rotate(12deg)}66%{transform:rotate(-7deg)}82%{transform:rotate(3deg)}100%{transform:none}}
+.kc-ch{transform-origin:196px 150px;animation:kc-ch 1.5s ease-in-out infinite alternate}
+.kc-ch.c2{animation-duration:1.9s;animation-delay:-.4s}.kc-ch.c3{animation-duration:1.7s;animation-delay:-.9s}
+@keyframes kc-ch{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+.run .kc-ring{animation:kc-drop .7s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes kc-drop{from{transform:translateY(-130px)}}
+.kc-link{transform-box:fill-box;transform-origin:50% 0}
+.run .kc-link{animation:kc-link .3s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(.55s + var(--k)*.14s)}
+@keyframes kc-link{from{transform:scale(0)}}
+.run .kc-in{animation:kc-fly .7s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:var(--kd)}
+@keyframes kc-fly{from{opacity:0;transform:translate(var(--kx),var(--ky)) rotate(var(--kr))}}
+.kc-click{transform-box:fill-box;transform-origin:50% 50%;opacity:0}
+.run .kc-click{animation:kc-click .5s ease-out both;animation-delay:var(--kd)}
+@keyframes kc-click{0%{opacity:0;transform:scale(.2)}40%{opacity:1}100%{opacity:0;transform:scale(1.6) rotate(40deg)}}
+/* card 5 : gift */
+.c-gift{--c-bg:var(--navy);--c-ink:#fff;--s-bg:#0b2658;border-radius:34px 34px 110px 34px}
+.c-gift h3{color:var(--gold)}
+.g-lid{transform-box:fill-box;transform-origin:20% 100%;transform:translate(-30px,-74px) rotate(-26deg)}
+.run .g-lid{animation:g-lid 1.7s cubic-bezier(.3,.7,.3,1.2) both}
+@keyframes g-lid{0%,34%{transform:none}40%{transform:translateY(5px) scale(1.04,.9)}}
+.g-box{transform-box:fill-box;transform-origin:50% 100%}
+.run .g-box{animation:g-shake 1.7s ease-in-out both}
+@keyframes g-shake{0%,36%,100%{transform:none}6%,18%,30%{transform:rotate(-3.5deg)}12%,24%{transform:rotate(3.5deg)}42%{transform:scale(1.05,.93)}55%{transform:scale(.98,1.03)}}
+.g-rays{transform-box:fill-box;transform-origin:50% 100%;animation:g-pulse 2.2s ease-in-out infinite alternate}
+.run .g-rays{animation:g-rays 1.9s cubic-bezier(.2,.8,.3,1) both,g-pulse 2.2s ease-in-out 1.9s infinite alternate}
+@keyframes g-rays{0%,38%{opacity:0;transform:scale(.3,0)}}
+@keyframes g-pulse{from{opacity:.75}to{opacity:1}}
+.g-star{transform-box:fill-box;transform-origin:50% 50%;transform:translate(var(--tx),var(--ty)) rotate(var(--tr)) scale(var(--ts));animation:g-float 2.4s ease-in-out infinite alternate;animation-delay:var(--td)}
+.run .g-star{animation:g-star 1.5s cubic-bezier(.15,.8,.3,1) both,g-float 2.4s ease-in-out infinite alternate;animation-delay:calc(.62s + var(--td)),calc(2.2s + var(--td))}
+@keyframes g-star{0%{opacity:0;transform:translate(0,0) scale(.1)}15%{opacity:1}}
+@keyframes g-float{from{transform:translate(var(--tx),var(--ty)) rotate(var(--tr)) scale(var(--ts))}to{transform:translate(var(--tx),calc(var(--ty) - 7px)) rotate(calc(var(--tr) + 25deg)) scale(calc(var(--ts)*.86))}}
+.play-end{position:relative;margin:54px -16px 0}
+.play-end svg{width:100%;height:auto;margin-bottom:-1px}
+
+/* ---------- 04 animals ---------- */
+.animals{position:relative;padding:8px 16px 0;text-align:center;color:#6b4226;background:linear-gradient(180deg,var(--pink) 0%,#fdeede 46%,#eaf5dc 100%)}
+.animals .h-en{font-size:calc(var(--u)*11.2);color:#c2557d;transform:rotate(-1.5deg)}
+.animals .sub{display:inline-block;margin-bottom:10px;padding:4px 16px;border-radius:999px;background:#fff;font:400 14px/1.5 var(--f-pop);color:#c2557d;box-shadow:0 3px 0 rgba(194,85,125,.2)}
+.paddock{position:relative;margin:14px -16px 0;height:calc(var(--u)*74)}
+.paddock>svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
+.paddock .fence{z-index:5;pointer-events:none;height:calc(var(--u)*21)}
+.ani{position:absolute;padding:0;border:0;background:none;cursor:pointer;z-index:3}
+.ani svg{width:100%;height:auto;overflow:visible}
+.ani.boing svg{animation:boing .6s cubic-bezier(.3,.6,.4,1)}
+@keyframes boing{0%{transform:none}25%{transform:scale(1.08,.9)}55%{transform:translateY(-14%) scale(.96,1.05)}80%{transform:scale(1.04,.96)}100%{transform:none}}
+.a-alpaca{left:43%;width:24%;bottom:31%;z-index:2}
+.a-alpaca svg{animation:peek 5.2s ease-in-out infinite}
+@keyframes peek{0%,12%{transform:translateY(46%)}30%,70%{transform:translateY(0)}36%{transform:translateY(0) rotate(-5deg)}44%{transform:translateY(0) rotate(4deg)}52%{transform:translateY(0)}88%,100%{transform:translateY(46%)}}
+.a-sheep{left:4%;width:40%;bottom:27%}
+.a-goat{left:65%;width:33%;bottom:23%;z-index:4}
+.a-rabbit{left:15%;width:21%;bottom:3%;z-index:6}
+.ear{transform-box:fill-box;transform-origin:50% 100%}
+.ear-l{animation:ear-l 3.4s ease-in-out infinite}.ear-r{animation:ear-r 3.4s ease-in-out infinite}
+@keyframes ear-l{0%,58%,100%{transform:rotate(0)}64%{transform:rotate(-16deg)}70%{transform:rotate(0)}76%{transform:rotate(-12deg)}84%{transform:rotate(0)}}
+@keyframes ear-r{0%,62%,100%{transform:rotate(0)}68%{transform:rotate(18deg)}76%{transform:rotate(0)}}
+.chew{transform-box:fill-box;transform-origin:50% 0;animation:chew .9s ease-in-out infinite alternate}
+@keyframes chew{from{transform:translateX(-1.5px)}to{transform:translateX(1.5px) scaleY(1.08)}}
+.maybe{position:relative;z-index:7;margin:-6px auto 0;max-width:360px;padding:22px 16px 20px;background:#fffdf9;border-radius:30px;border:4px dashed #f0a9c4;box-shadow:0 8px 0 rgba(194,85,125,.16)}
+.maybe p{font:400 clamp(19px,calc(var(--u)*5.7),26px)/1.6 var(--f-pop);color:#b0406a}
+.maybe .heart{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;margin-left:.1em;animation:beat 1s ease-in-out infinite alternate}
+@keyframes beat{from{transform:scale(.9)}to{transform:scale(1.14)}}
+.maybe .snack{position:absolute;width:46px;height:46px}
+.maybe .snack svg{width:100%;height:100%}
+.maybe .sn1{left:-8px;top:-20px;transform:rotate(-18deg)}.maybe .sn2{right:-6px;bottom:-18px;transform:rotate(14deg)}
+.animals-end{position:relative;margin:40px -16px 0}
+.animals-end svg{width:100%;height:auto;margin-bottom:-1px}
+
+/* ---------- 05 finale ---------- */
+.finale{position:relative;overflow:hidden;color:var(--snow);text-align:center;background:linear-gradient(180deg,var(--night) 0%,#0c2a63 40%,var(--navy) 70%,#2c5c9f 100%);padding:0 16px;--fh:calc(var(--u)*36)}
+.finale .stars{position:absolute;left:0;top:0;width:100%;height:70%}
+.finale .garland{position:relative;margin:0 -16px;width:auto;padding-top:0}
+.fin-copy{position:relative;z-index:4;padding-top:18px}
+.fin-date{display:inline-block;font-family:var(--f-en);font-weight:700;font-size:calc(var(--u)*19);line-height:1;color:var(--gold);text-shadow:0 .04em 0 #fff3cf,0 .1em 0 var(--gold-d),0 .16em .25em rgba(3,12,38,.6);transform:rotate(-2deg)}
+.fin-date span{font-family:var(--f-pop);font-size:.5em;margin-left:.04em}
+.fin-msg{margin-top:16px;font:400 clamp(19px,calc(var(--u)*6),27px)/1.45 var(--f-pop);text-shadow:0 2px 0 rgba(3,12,38,.5);text-wrap:balance}
+.stage{position:relative;margin:6px -16px 0;height:calc(var(--u)*88)}
+.tree{position:absolute;left:50%;bottom:calc(var(--fh)*.55);width:64%;margin-left:-32%;transform:translate3d(0,calc(var(--py,0)*1px),0)}
+.tree svg{width:100%;height:auto;overflow:visible}
+.stage .mound{z-index:1}
+.stage .m1{height:calc(var(--fh)*.95)}.stage .m2{height:calc(var(--fh)*.3);z-index:9}
+.row{position:absolute;left:0;bottom:calc(var(--fh)*.1);width:100%;height:var(--fh);z-index:3}
+.row .chr{position:absolute;bottom:0;margin-left:calc(var(--h)*var(--ar)*-.5);--h:var(--fh)}
+.row .chr:nth-child(1){left:11%;z-index:1;bottom:8%}
+.row .chr:nth-child(2){left:26.5%;z-index:2;--h:calc(var(--fh)*.94)}
+.row .chr:nth-child(3){left:41%;z-index:1;bottom:9%;--h:calc(var(--fh)*.98)}
+.row .chr:nth-child(4){left:56.5%;z-index:2}
+.row .chr:nth-child(5){left:73.5%;z-index:1;bottom:8%;--h:calc(var(--fh)*.96)}
+.row .chr:nth-child(6){left:89%;z-index:2}
+.pres{position:absolute;z-index:10;bottom:0;animation:pres 2.6s ease-in-out infinite alternate}
+.pres svg{width:100%;height:auto}
+.pres.p1{left:1%;width:11%;bottom:0}.pres.p2{left:45.5%;width:10%;bottom:0;animation-delay:-1s;animation-duration:3.1s}.pres.p3{left:63%;width:9%;bottom:.5%;animation-delay:-1.7s}
+@keyframes pres{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-7px) rotate(3deg)}}
+.foot{position:relative;z-index:10;margin:-2px -16px 0;padding:18px 16px calc(26px + env(safe-area-inset-bottom,0px));background:var(--snow);color:#7b6a82;font:500 13px/1.6 var(--f-body)}
+.foot strong{display:block;font:700 18px/1.3 var(--f-en);color:var(--red)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .tapchip,.hint{display:none}
+  .a-alpaca svg{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="gRed" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#f4605f"/><stop offset=".55" stop-color="#D92F32"/><stop offset="1" stop-color="#b3232b"/></radialGradient>
+    <linearGradient id="gFur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dfe8f5"/></linearGradient>
+    <radialGradient id="gGold" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff3c2"/><stop offset=".5" stop-color="#F4C75B"/><stop offset="1" stop-color="#dc9f2c"/></radialGradient>
+    <radialGradient id="gGreen" cx="35%" cy="28%" r="85%"><stop offset="0" stop-color="#3fae78"/><stop offset=".6" stop-color="#1f8a57"/><stop offset="1" stop-color="#126640"/></radialGradient>
+    <radialGradient id="gNose" cx="36%" cy="30%" r="75%"><stop offset="0" stop-color="#ff8f84"/><stop offset=".45" stop-color="#ee3b3b"/><stop offset="1" stop-color="#b3151f"/></radialGradient>
+    <linearGradient id="gRay" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff2b8" stop-opacity=".95"/><stop offset="1" stop-color="#fff2b8" stop-opacity="0"/></linearGradient>
+    <symbol id="i-star" viewBox="-12 -12 24 24"><path d="M0.00 -10.50L2.70 -3.72L9.99 -3.24L4.37 1.42L6.17 8.49L0.00 4.60L-6.17 8.49L-4.37 1.42L-9.99 -3.24L-2.70 -3.72Z" fill="url(#gGold)" stroke="#c98f24" stroke-width="1.1" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flake" viewBox="-12 -12 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M0-10V10M-8.7-5 8.7 5M-8.7 5 8.7-5"/><path d="M-2.6-7.6 0-5.4 2.6-7.6M-2.6 7.6 0 5.4 2.6 7.6M-7.9-1.6-4.7-2.7-5.3-6M7.9 1.6 4.7 2.7 5.3 6M-7.9 1.6-4.7 2.7-5.3 6M7.9-1.6 4.7-2.7 5.3-6"/></g></symbol>
+    <symbol id="i-spark" viewBox="-12 -12 24 24"><path d="M0-11C1.2-3.5 3.5-1.2 11 0 3.5 1.2 1.2 3.5 0 11-1.2 3.5-3.5 1.2-11 0-3.5-1.2-1.2-3.5 0-11Z" fill="#fff8d6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21C5 15.5 2 12 2 8.2 2 5.3 4.3 3 7.1 3c1.9 0 3.7 1 4.9 2.7C13.200 4 15 3 16.900 3 19.700 3 22 5.300 22 8.200 22 12 19 15.500 12 21Z" fill="#f79cc0" stroke="#e0669a" stroke-width="1.2" stroke-linejoin="round"/><path d="M6.500 6.200c-1.200.5-1.900 1.600-1.900 2.800" fill="none" stroke="#fff" stroke-width="1.400" stroke-linecap="round" opacity=".8"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 60 60"><rect x="8" y="24" width="44" height="32" rx="5" fill="var(--gc,#D92F32)" stroke="rgba(0,0,0,.25)" stroke-width="2"/><rect x="5" y="15" width="50" height="13" rx="5" fill="var(--gc,#D92F32)" stroke="rgba(0,0,0,.25)" stroke-width="2"/><rect x="25" y="15" width="10" height="41" fill="var(--gr,#F4C75B)"/><path d="M30 15C22 3 12 6 15 12c2 4 9 4 15 3ZM30 15c8-12 18-9 15-3-2 4-9 4-15 3Z" fill="var(--gr,#F4C75B)" stroke="rgba(0,0,0,.2)" stroke-width="1.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+<!-- ================= 01 Magical Opening ================= -->
+<header class="sec live hero" id="top">
+  <svg class="stars" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="#fff"><circle cx="58" cy="439" r="0.9" opacity="0.57"/><circle cx="264" cy="137" r="2.2" opacity="0.76"/><circle cx="232" cy="137" r="1.7" opacity="0.72" class="tw"/><circle cx="126" cy="289" r="1.1" opacity="0.86" class="tw tw2"/><circle cx="149" cy="417" r="1.1" opacity="0.72" class="tw tw3"/><circle cx="286" cy="318" r="1.3" opacity="0.86"/><circle cx="309" cy="317" r="1.3" opacity="0.77"/><circle cx="140" cy="13" r="1.3" opacity="0.67" class="tw"/><circle cx="10" cy="307" r="1.3" opacity="0.66" class="tw tw2"/><circle cx="311" cy="68" r="1.7" opacity="0.55" class="tw tw3"/><circle cx="133" cy="154" r="1.3" opacity="0.85"/><circle cx="162" cy="463" r="1.1" opacity="0.66"/><circle cx="203" cy="39" r="2.2" opacity="0.62" class="tw"/><circle cx="190" cy="355" r="2.2" opacity="0.46" class="tw tw2"/><circle cx="140" cy="431" r="2.2" opacity="0.89" class="tw tw3"/><circle cx="68" cy="67" r="0.9" opacity="0.87"/><circle cx="15" cy="386" r="1.7" opacity="0.78"/><circle cx="295" cy="392" r="1.3" opacity="0.55" class="tw"/><circle cx="45" cy="155" r="1.1" opacity="0.86" class="tw tw2"/><circle cx="249" cy="88" r="1.3" opacity="0.75" class="tw tw3"/><circle cx="37" cy="249" r="0.9" opacity="0.94"/><circle cx="13" cy="479" r="2.2" opacity="0.50"/><circle cx="385" cy="178" r="1.1" opacity="0.70" class="tw"/><circle cx="149" cy="333" r="2.2" opacity="0.85" class="tw tw2"/><circle cx="86" cy="74" r="1.7" opacity="0.65" class="tw tw3"/><circle cx="248" cy="264" r="1.3" opacity="0.83"/><circle cx="310" cy="334" r="0.9" opacity="0.51"/><circle cx="89" cy="269" r="1.7" opacity="0.76" class="tw"/><circle cx="135" cy="414" r="1.3" opacity="0.49" class="tw tw2"/><circle cx="121" cy="66" r="0.9" opacity="0.49" class="tw tw3"/><circle cx="388" cy="98" r="0.9" opacity="0.64"/><circle cx="94" cy="193" r="0.9" opacity="0.66"/><circle cx="384" cy="431" r="1.3" opacity="0.53" class="tw"/><circle cx="344" cy="22" r="1.3" opacity="0.94" class="tw tw2"/><circle cx="4" cy="220" r="1.1" opacity="0.54" class="tw tw3"/><circle cx="255" cy="100" r="0.9" opacity="0.66"/><circle cx="50" cy="37" r="1.3" opacity="0.47"/><circle cx="323" cy="253" r="1.7" opacity="0.62" class="tw"/><circle cx="83" cy="362" r="1.1" opacity="0.93" class="tw tw2"/><circle cx="222" cy="478" r="0.9" opacity="0.76" class="tw tw3"/><circle cx="387" cy="252" r="1.7" opacity="0.50"/><circle cx="280" cy="415" r="0.9" opacity="0.82"/><circle cx="223" cy="211" r="1.7" opacity="0.87" class="tw"/><circle cx="309" cy="142" r="1.3" opacity="0.81" class="tw tw2"/><circle cx="62" cy="185" r="0.9" opacity="0.56" class="tw tw3"/><circle cx="195" cy="19" r="1.7" opacity="0.90"/></g><use href="#i-spark" x="52" y="96" width="16" height="16" class="tw tw2"/><use href="#i-spark" x="338" y="210" width="12" height="12" class="tw tw2"/><use href="#i-spark" x="120" y="300" width="10" height="10" class="tw tw2"/></svg>
+  <div class="village" aria-hidden="true">
+    <svg viewBox="0 0 400 150">
+      <path d="M0 150V92C50 70 96 64 150 78s110 4 160-14 70-10 90 0V150Z" fill="#4a76b4"/>
+      <g fill="#173e73">
+        <path d="M22 88 34 62l12 26ZM24 98 34 76l10 22ZM352 70l11-25 11 25ZM354 80l9-20 9 20ZM186 84l9-21 9 21Z"/>
+      </g>
+      <g fill="#e6f0fc"><path d="M29 72 34 62l5 10ZM358 56l5-11 5 11ZM191 72l4-9 4 9Z"/></g>
+      <g>
+        <rect x="62" y="70" width="34" height="26" fill="#1d4680"/><path d="M57 72 79 52l22 20Z" fill="#e6f0fc"/><rect x="68" y="78" width="8" height="9" fill="#F4C75B" class="tw"/><rect x="82" y="78" width="8" height="9" fill="#ffd98a" class="tw tw2"/><rect x="88" y="54" width="5" height="12" fill="#1d4680"/><rect x="87" y="52" width="7" height="3" fill="#e6f0fc"/>
+        <rect x="112" y="76" width="26" height="22" fill="#214d8c"/><path d="M108 78 125 62l17 16Z" fill="#dbe8f9"/><rect x="120" y="84" width="9" height="9" fill="#ffd98a" class="tw tw3"/>
+        <rect x="232" y="62" width="30" height="30" fill="#1d4680"/><path d="M227 64 247 42l20 22Z" fill="#e6f0fc"/><rect x="238" y="70" width="7" height="9" fill="#F4C75B" class="tw tw2"/><rect x="250" y="70" width="7" height="9" fill="#ffd98a" class="tw"/><rect x="244" y="83" width="7" height="9" fill="#12305c"/>
+        <rect x="282" y="58" width="36" height="28" fill="#214d8c"/><path d="M276 60 300 38l24 22Z" fill="#dbe8f9"/><rect x="289" y="66" width="8" height="9" fill="#ffd98a" class="tw tw3"/><rect x="303" y="66" width="8" height="9" fill="#F4C75B" class="tw"/>
+      </g>
+      <g>
+        <path d="M168 86 182 54l14 32ZM171 70 182 44l11 26ZM174 56l8-18 8 18Z" fill="#1c7a50"/>
+        <path d="M177 49l5-11 5 11ZM173 66l4-4 5 3 5-3 4 4" fill="none" stroke="#e6f0fc" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="178" cy="62" r="2" fill="#ff7a7a" class="tw"/><circle cx="187" cy="72" r="2" fill="#F4C75B" class="tw tw2"/><circle cx="176" cy="80" r="2" fill="#7fd0ff" class="tw tw3"/><circle cx="189" cy="82" r="2" fill="#ff9fce" class="tw"/>
+        <use href="#i-star" x="176" y="30" width="12" height="12"/>
+      </g>
+      <path d="M0 150V110C60 92 120 100 190 106s140-12 210-22V150Z" fill="#7ea3d6"/>
+    </svg>
+  </div>
+  <div class="garland" aria-hidden="true"><svg viewBox="0 0 400 46"><path d="M-12 5Q40.0 38 92 5M92 5Q146.0 38 200 5M200 5Q254.0 38 308 5M308 5Q360.0 38 412 5" fill="none" stroke="#061633" stroke-width="2.2"/><circle class="tw tw2" cx="8.8" cy="24.6" r="12" fill="#ffd34d" opacity=".28"/><rect x="6.2" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="8.8" cy="25.1" rx="5" ry="6.8" fill="#ffd34d"/><circle class="tw tw3" cx="40.0" cy="30.5" r="12" fill="#57d38c" opacity=".28"/><rect x="37.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="40.0" cy="31.0" rx="5" ry="6.8" fill="#57d38c"/><circle class="tw" cx="71.2" cy="24.6" r="12" fill="#ff8fc6" opacity=".28"/><rect x="68.6" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="71.2" cy="25.1" rx="5" ry="6.8" fill="#ff8fc6"/><circle class="tw tw2" cx="113.6" cy="24.6" r="12" fill="#59b8ff" opacity=".28"/><rect x="111.0" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="113.6" cy="25.1" rx="5" ry="6.8" fill="#59b8ff"/><circle class="tw tw3" cx="146.0" cy="30.5" r="12" fill="#ff5a5a" opacity=".28"/><rect x="143.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="146.0" cy="31.0" rx="5" ry="6.8" fill="#ff5a5a"/><circle class="tw" cx="178.4" cy="24.6" r="12" fill="#ffd34d" opacity=".28"/><rect x="175.8" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="178.4" cy="25.1" rx="5" ry="6.8" fill="#ffd34d"/><circle class="tw tw2" cx="221.6" cy="24.6" r="12" fill="#57d38c" opacity=".28"/><rect x="219.0" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="221.6" cy="25.1" rx="5" ry="6.8" fill="#57d38c"/><circle class="tw tw3" cx="254.0" cy="30.5" r="12" fill="#ff8fc6" opacity=".28"/><rect x="251.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="254.0" cy="31.0" rx="5" ry="6.8" fill="#ff8fc6"/><circle class="tw" cx="286.4" cy="24.6" r="12" fill="#59b8ff" opacity=".28"/><rect x="283.8" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="286.4" cy="25.1" rx="5" ry="6.8" fill="#59b8ff"/><circle class="tw tw2" cx="328.8" cy="24.6" r="12" fill="#ff5a5a" opacity=".28"/><rect x="326.2" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="328.8" cy="25.1" rx="5" ry="6.8" fill="#ff5a5a"/><circle class="tw tw3" cx="360.0" cy="30.5" r="12" fill="#ffd34d" opacity=".28"/><rect x="357.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="360.0" cy="31.0" rx="5" ry="6.8" fill="#ffd34d"/><circle class="tw" cx="391.2" cy="24.6" r="12" fill="#57d38c" opacity=".28"/><rect x="388.6" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="391.2" cy="25.1" rx="5" ry="6.8" fill="#57d38c"/></svg></div>
+
+  <button class="flake" type="button" style="left:7%;top:33%;--s:22px;--d:8s;color:#cfe4ff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <button class="flake" type="button" style="left:93%;top:55%;--s:26px;--d:11s;color:#fff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <button class="flake" type="button" style="left:6%;top:56%;--s:18px;--d:9.5s;color:#fff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+
+  <div class="hero-copy">
+    <h1 class="title" aria-label="Christmas Event"><span class="moon" aria-hidden="true"></span><span class="w" aria-hidden="true"><span class="l" style="--i:0;--r:-7deg;--y:0.02em">C</span><span class="l" style="--i:1;--r:4deg;--y:-0.03em">h</span><span class="l" style="--i:2;--r:-3deg;--y:0.01em">r</span><span class="l" style="--i:3;--r:5deg;--y:-0.02em">i</span><span class="l" style="--i:4;--r:-4deg;--y:0.03em">s</span><span class="l" style="--i:5;--r:3deg;--y:-0.01em">t</span><span class="l" style="--i:6;--r:-5deg;--y:0.02em">m</span><span class="l" style="--i:7;--r:4deg;--y:-0.03em">a</span><span class="l" style="--i:8;--r:-2deg;--y:0.01em">s</span></span><span class="w" aria-hidden="true"><span class="l" style="--i:9;--r:5deg;--y:-0.02em">E</span><span class="l" style="--i:10;--r:-4deg;--y:0.02em">v</span><span class="l" style="--i:11;--r:3deg;--y:-0.01em">e</span><span class="l" style="--i:12;--r:-5deg;--y:0.03em">n</span><span class="l" style="--i:13;--r:4deg;--y:-0.02em">t</span></span></h1>
+    <p class="date"><span class="yr">2026</span>12/13<span class="wd">（日）</span></p>
+    <p class="tagline">みんなで楽しむクリスマスイベント！</p>
+  </div>
+
+  <div class="cast">
+    <svg class="mound mound-back" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 200V46C70 22 130 10 200 8s140 16 200 44V200Z" fill="#b7cfee"/></svg>
+    <button class="chr chr-bird p-bird" type="button" data-chr="bird" aria-label="とり（タップすると よろこぶよ）" style="--ar:0.7929;--wa:-13deg;--wd:-0.25s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/bird.webp" width="444" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><img class="chr-arm" src="img/bird-arm.webp" width="444" height="560" alt="" decoding="async" loading="eager" fetchpriority="high" style="transform-origin:68% 50%"><svg viewBox="0 0 707 892" aria-hidden="true"><g transform="translate(252 108) rotate(-20) scale(2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g transform="translate(476 112) rotate(20) scale(-2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g class="dangle"><path d="M282 392 330 404 320 522 272 512Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M276 478 322 488M274 496 321 506" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M258 352C320 394 400 394 464 350L470 388C400 434 318 434 252 392Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="304" cy="400" rx="27" ry="21" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5"/><g fill="#7384a8" stroke="#33415f" stroke-width="4"><g transform="rotate(0 326 212)"><ellipse class="lid" cx="326" cy="212" rx="19" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g><g transform="rotate(0 403 214)"><ellipse class="lid" cx="403" cy="214" rx="18" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g></g></svg></span></span></span></button>
+    <svg class="mound mound-mid" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 200V44C50 22 96 12 150 22s66 22 100 4S340 8 400 40V200Z" fill="#dce9fa"/></svg>
+    <button class="chr chr-penguin p-penguin" type="button" data-chr="penguin" aria-label="ペンギン（タップすると よろこぶよ）" style="--ar:0.6750;--wa:-14deg;--wd:-1.07s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/penguin.webp" width="378" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><img class="chr-arm" src="img/penguin-arm.webp" width="378" height="560" alt="" decoding="async" loading="eager" fetchpriority="high" style="transform-origin:80.5% 51%"><svg viewBox="0 0 616 912" aria-hidden="true"><g transform="translate(300 60) rotate(-12) scale(2.5) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><g class="dangle"><path d="M396 518 446 508 462 632 412 642Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><path d="M409 596 458 586M411 616 461 606" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M176 470C250 514 380 518 462 464L470 500C385 556 248 552 170 506Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="424" cy="512" rx="28" ry="22" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5"/><path d="M214 494C270 524 360 528 430 490" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="14 22" opacity=".85"/><g fill="#dbeaf8" stroke="#4a7fb5" stroke-width="3.5"><g transform="rotate(0 320 329)"><ellipse class="lid" cx="320" cy="329" rx="18" ry="28" style="--bd:5.8s;--bl:-3.1s"/></g><g transform="rotate(0 412 326)"><ellipse class="lid" cx="412" cy="326" rx="14" ry="26" style="--bd:5.8s;--bl:-3.1s"/></g></g></svg></span></span></span></button>
+    <button class="chr chr-rabbit p-rabbit" type="button" data-chr="rabbit" aria-label="ウサギ（タップすると よろこぶよ）" style="--ar:0.4911;--wa:-16deg;--wd:-1.57s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/rabbit.webp" width="275" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><img class="chr-arm" src="img/rabbit-arm.webp" width="275" height="560" alt="" decoding="async" loading="eager" fetchpriority="high" style="transform-origin:69.5% 61.5%"><svg viewBox="0 0 445 906" aria-hidden="true"><path d="M190 524C222 548 272 548 300 522C334 534 360 562 372 606C330 632 285 640 247 640C206 640 158 632 118 606C130 564 158 534 190 524Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#b9c6da" stroke-width="27" stroke-linecap="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/><g transform="translate(247 560) scale(1.0)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#f3dcbd" stroke="#a8845a" stroke-width="3.5"><g transform="rotate(0 188 388)"><ellipse class="lid" cx="188" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g><g transform="rotate(0 295 388)"><ellipse class="lid" cx="295" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g></g></svg></span></span></span></button>
+    <svg class="mound mound-front" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100V30C60 6 120 4 200 22s140 6 200-12V100Z" fill="#fffdf8"/></svg>
+    <button class="chr chr-robot p-robot" type="button" data-chr="robot" aria-label="ロボット（タップすると よろこぶよ）" style="--ar:0.6393"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/robot.webp" width="358" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><svg viewBox="0 0 586 917" aria-hidden="true"><circle cx="226" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="250" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="274" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="298" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="322" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="346" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="370" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="394" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="238" cy="398" r="4" fill="#F4C75B"/><circle cx="286" cy="402" r="4" fill="#F4C75B"/><circle cx="334" cy="398" r="4" fill="#F4C75B"/><circle cx="382" cy="402" r="4" fill="#F4C75B"/><path d="M172 552C200 672 430 680 480 558" fill="none" stroke="#0f5132" stroke-width="5" stroke-linecap="round"/><circle class="tw" cx="186" cy="601" r="24" fill="#ff5a5a" opacity=".3"/><rect x="180" y="582" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="186" cy="602" rx="11.5" ry="15" fill="#ff5a5a" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="241" cy="645" r="24" fill="#ffd34d" opacity=".3"/><rect x="235" y="626" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="241" cy="646" rx="11.5" ry="15" fill="#ffd34d" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw3" cx="318" cy="662" r="24" fill="#59b8ff" opacity=".3"/><rect x="312" y="643" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw3" cx="318" cy="663" rx="11.5" ry="15" fill="#59b8ff" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw" cx="397" cy="649" r="24" fill="#ff8fc6" opacity=".3"/><rect x="391" y="630" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="397" cy="650" rx="11.5" ry="15" fill="#ff8fc6" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="460" cy="607" r="24" fill="#57d38c" opacity=".3"/><rect x="454" y="588" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="460" cy="608" rx="11.5" ry="15" fill="#57d38c" stroke="rgba(0,0,0,.25)" stroke-width="2"/><g transform="translate(311 -24) scale(6)"><circle r="12" fill="#fff3a8" opacity=".35" class="tw"/><g class="topstar"><path d="M0.00 -10.50L2.70 -3.72L9.99 -3.24L4.37 1.42L6.17 8.49L0.00 4.60L-6.17 8.49L-4.37 1.42L-9.99 -3.24L-2.70 -3.72Z" fill="url(#gGold)" stroke="#b7862a" stroke-width="1" stroke-linejoin="round"/></g></g><g fill="#d3dcea" stroke="#3a6fc0" stroke-width="5"><g transform="rotate(0 224 218)"><ellipse class="lid" cx="224" cy="218" rx="47" ry="53" style="--bd:5.2s;--bl:-1.0s"/></g><g transform="rotate(0 400 222)"><ellipse class="lid" cx="400" cy="222" rx="48" ry="51" style="--bd:5.2s;--bl:-1.0s"/></g></g></svg></span></span></span></button>
+    <button class="chr chr-panda p-panda" type="button" data-chr="panda" aria-label="パンダ（タップすると よろこぶよ）" style="--ar:0.7768;--wa:15deg;--wd:-0.57s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/panda.webp" width="435" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><img class="chr-arm" src="img/panda-arm.webp" width="435" height="560" alt="" decoding="async" loading="eager" fetchpriority="high" style="transform-origin:27.5% 55.5%"><svg viewBox="0 0 682 878" aria-hidden="true"><path d="M232 428C290 458 392 458 452 428C486 438 512 464 528 502C476 538 404 550 341 550C278 550 206 538 154 502C170 464 196 438 232 428Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#b9c6da" stroke-width="29" stroke-linecap="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/><g transform="translate(341 470) scale(1.25)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#0e1622" stroke="#8894a8" stroke-width="3"><g transform="rotate(0 267 262)"><ellipse class="lid" cx="267" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g><g transform="rotate(0 407 262)"><ellipse class="lid" cx="407" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g></g></svg></span></span></span></button>
+    <button class="chr chr-squirrel p-squirrel" type="button" data-chr="squirrel" aria-label="リス（タップすると よろこぶよ）" style="--ar:0.6000"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/squirrel.webp" width="336" height="560" alt="" decoding="async" loading="eager" fetchpriority="high"><svg viewBox="0 0 558 929" aria-hidden="true"><g transform="translate(284 66) rotate(-9) scale(2.45) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><path d="M206 506C245 532 312 532 350 504L356 526C314 558 244 558 200 528Z" fill="url(#gFur)" stroke="#b9c6da" stroke-width="4" stroke-linejoin="round"/><circle cx="279" cy="602" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><circle cx="279" cy="660" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><g fill="#f19b4e" stroke="#8a4a1c" stroke-width="4"><g transform="rotate(4 196 320)"><ellipse class="lid" cx="196" cy="320" rx="40" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g><g transform="rotate(-4 320 320)"><ellipse class="lid" cx="320" cy="320" rx="37" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g></g></svg></span></span></span></button>
+    <svg class="mound mound-fore" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V26C40 8 90 30 140 22s80-20 130-6 90 18 130-4V60Z" fill="#FFF9F0"/></svg>
+  </div>
+</header>
+
+<main>
+<!-- ================= 02 Welcome to Christmas Wonderland ================= -->
+<section class="sec welcome" id="welcome">
+  <h2 class="h-en"><small>Welcome to</small>Christmas Wonderland</h2>
+  <div class="book" id="book">
+    <div class="book-in">
+      <div class="pg pg-l" aria-hidden="true">
+        <svg viewBox="0 0 170 240" preserveAspectRatio="xMidYMid slice"><rect width="170" height="240" fill="#b9252c"/><g opacity=".9"><use href="#i-star" x="18" y="22" width="20" height="20"/><use href="#i-star" x="104" y="48" width="14" height="14"/><use href="#i-star" x="52" y="92" width="16" height="16"/><use href="#i-star" x="124" y="128" width="20" height="20"/><use href="#i-star" x="24" y="160" width="14" height="14"/><use href="#i-star" x="84" y="196" width="18" height="18"/></g></svg>
+      </div>
+      <div class="pg pg-r">
+        <p class="msg">クリスマスの<br>楽しい時間が<i>はじまるよ！</i></p>
+      </div>
+      <button class="leaf" type="button" aria-label="絵本のページをめくる">
+        <span class="leaf-f" aria-hidden="true">
+          <svg viewBox="0 0 170 240" preserveAspectRatio="xMidYMid slice">
+            <rect width="170" height="240" fill="#fffdf7"/>
+            <rect x="9" y="9" width="152" height="222" rx="10" fill="none" stroke="#D92F32" stroke-width="3"/>
+            <rect x="15" y="15" width="140" height="210" rx="7" fill="none" stroke="#F4C75B" stroke-width="1.5" stroke-dasharray="1 6" stroke-linecap="round"/>
+            <use href="#i-star" x="63" y="34" width="44" height="44"/>
+            <text x="85" y="118" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="25" fill="#D92F32">Christmas</text>
+            <text x="85" y="146" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="22" fill="#176B45">Wonderland</text>
+            <g transform="translate(85 188)"><path d="M-22 0c0-9 10-14 22-4 12-10 22-5 22 4s-10 13-22 3c-12 10-22 6-22-3Z" fill="#1f8a57" stroke="#0f5132" stroke-width="2"/><circle r="5" fill="#D92F32"/><circle cx="-6" cy="5" r="4" fill="#D92F32"/><circle cx="6" cy="5" r="4" fill="#D92F32"/></g>
+          </svg>
+        </span>
+        <span class="leaf-b" aria-hidden="true">
+          <svg viewBox="0 0 170 240" preserveAspectRatio="xMidYMid slice">
+            <rect width="170" height="240" fill="#eaf4ff"/>
+            <path d="M0 240V186c40-16 90-14 170 0v54Z" fill="#fff"/>
+            <g>
+              <path d="M85 44 122 104H104l28 44H112l30 44H28l30-44H38l28-44H48Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="76" y="190" width="18" height="18" rx="3" fill="#8a5a2b" stroke="#5c3a17" stroke-width="2"/>
+              <path d="M58 110c16 10 38 10 54 0M46 152c24 14 54 14 78 0" fill="none" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="72" cy="88" r="5" fill="#ff6b6b" class="tw"/><circle cx="100" cy="126" r="5" fill="#7fd0ff" class="tw tw2"/><circle cx="66" cy="136" r="5" fill="#ff9fce" class="tw tw3"/><circle cx="92" cy="170" r="5" fill="#ff6b6b" class="tw"/><circle cx="118" cy="174" r="5" fill="#fff3a8" class="tw tw2"/><circle cx="56" cy="176" r="5" fill="#7fd0ff" class="tw tw3"/>
+              <use href="#i-star" x="67" y="14" width="36" height="36" class="topstar"/>
+            </g>
+            <use href="#i-gift" x="18" y="186" width="34" height="34"/>
+            <use href="#i-gift" x="122" y="190" width="30" height="30" style="--gc:#2f7fd1;--gr:#fff"/>
+            <g fill="#bcd6f5"><circle cx="24" cy="40" r="3"/><circle cx="146" cy="60" r="2.5"/><circle cx="34" cy="96" r="2"/><circle cx="150" cy="118" r="3"/><circle cx="16" cy="140" r="2.5"/></g>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+  <p class="book-note">ページをタップすると めくれるよ</p>
+  <div class="guides">
+    <button class="chr chr-penguin" type="button" data-chr="penguin" aria-label="ペンギン（タップすると よろこぶよ）" style="--ar:0.6750;--wa:-14deg;--wd:-1.90s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/penguin.webp" width="378" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/penguin-arm.webp" width="378" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:80.5% 51%"><svg viewBox="0 0 616 912" aria-hidden="true"><g transform="translate(300 60) rotate(-12) scale(2.5) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><g class="dangle"><path d="M396 518 446 508 462 632 412 642Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><path d="M409 596 458 586M411 616 461 606" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M176 470C250 514 380 518 462 464L470 500C385 556 248 552 170 506Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="424" cy="512" rx="28" ry="22" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5"/><path d="M214 494C270 524 360 528 430 490" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="14 22" opacity=".85"/><g fill="#dbeaf8" stroke="#4a7fb5" stroke-width="3.5"><g transform="rotate(0 320 329)"><ellipse class="lid" cx="320" cy="329" rx="18" ry="28" style="--bd:5.8s;--bl:-3.1s"/></g><g transform="rotate(0 412 326)"><ellipse class="lid" cx="412" cy="326" rx="14" ry="26" style="--bd:5.8s;--bl:-3.1s"/></g></g></svg></span></span></span></button>
+    <p class="bubble">さあ、こっちだよ！</p>
+    <button class="chr chr-rabbit" type="button" data-chr="rabbit" aria-label="ウサギ（タップすると よろこぶよ）" style="--ar:0.4911;--wa:-16deg;--wd:-1.89s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/rabbit.webp" width="275" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/rabbit-arm.webp" width="275" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:69.5% 61.5%"><svg viewBox="0 0 445 906" aria-hidden="true"><path d="M190 524C222 548 272 548 300 522C334 534 360 562 372 606C330 632 285 640 247 640C206 640 158 632 118 606C130 564 158 534 190 524Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#b9c6da" stroke-width="27" stroke-linecap="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/><g transform="translate(247 560) scale(1.0)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#f3dcbd" stroke="#a8845a" stroke-width="3.5"><g transform="rotate(0 188 388)"><ellipse class="lid" cx="188" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g><g transform="rotate(0 295 388)"><ellipse class="lid" cx="295" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g></g></svg></span></span></span></button>
+  </div>
+  <div class="firs" aria-hidden="true"><svg viewBox="0 0 400 70" preserveAspectRatio="none"><path d="M-8 70L9 27L27 70ZM25 70L40 18L56 70ZM54 70L70 19L85 70ZM81 70L99 28L117 70ZM107 70L125 12L143 70ZM135 70L151 16L168 70ZM170 70L189 21L208 70ZM206 70L221 11L237 70ZM235 70L251 27L267 70ZM264 70L285 26L305 70ZM296 70L315 22L335 70ZM327 70L343 29L358 70ZM355 70L375 21L395 70ZM384 70L404 20L423 70ZM413 70L434 15L455 70Z" fill="#2c8f63"/><path d="M-20 70L-1 32L18 70ZM11 70L31 38L51 70ZM43 70L58 35L74 70ZM72 70L88 33L104 70ZM95 70L114 27L134 70ZM122 70L143 37L165 70ZM151 70L170 31L190 70ZM178 70L199 23L220 70ZM205 70L224 43L244 70ZM234 70L253 22L273 70ZM264 70L281 36L298 70ZM292 70L308 34L323 70ZM316 70L332 43L348 70ZM346 70L362 39L378 70ZM372 70L393 42L414 70ZM398 70L417 25L436 70Z" fill="#176B45"/><rect y="66" width="400" height="5" fill="#176B45"/></svg></div>
+</section>
+
+<!-- ================= 03 Let's Play! ================= -->
+<section class="play" id="play">
+  <header class="sec play-head">
+    <h2 class="h-en">Let’s Play!</h2>
+    <p>5つの おたのしみが まってるよ</p>
+  </header>
+  <ol class="cards">
+
+    <!-- 1 ball-toss game -->
+    <li class="sec card c-toss" data-demo="toss">
+      <div class="scene-wrap">
+        <div class="no" aria-hidden="true"><svg viewBox="0 0 54 62"><path d="M27 1v8" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/><rect x="21" y="7" width="12" height="9" rx="3" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="27" cy="38" r="22" fill="#1c6fb0" stroke="#fff" stroke-width="4"/><ellipse cx="18" cy="29" rx="6" ry="3.6" fill="#fff" opacity=".4" transform="rotate(-32 18 29)"/><text x="27" y="47.500" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="26" fill="#fff">1</text></svg></div>
+        <button class="scene" type="button" aria-label="玉入れのアニメーションをもう一度見る">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <defs><linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9dcf5"/><stop offset="1" stop-color="#e6f6fd"/></linearGradient></defs>
+            <rect width="320" height="300" fill="url(#skyDay)"/>
+            <g fill="#fff" opacity=".85"><ellipse cx="70" cy="92" rx="30" ry="11"/><ellipse cx="92" cy="84" rx="20" ry="11"/><ellipse cx="282" cy="150" rx="26" ry="9"/></g>
+            <path d="M0 246Q80 220 170 238T320 226V300H0Z" fill="#fff"/>
+            <path d="M0 274Q90 256 190 270T320 262V300H0Z" fill="#e8f1fb"/>
+            <ellipse cx="230" cy="268" rx="26" ry="6" fill="#d3e0f0"/>
+            <rect x="226" y="110" width="8" height="158" rx="4" fill="#c98b4a" stroke="#8a5a2b" stroke-width="2"/>
+            <g class="basket">
+              <path d="M186 70H274L262 118Q230 128 198 118Z" fill="#e8c684" stroke="#a97634" stroke-width="3" stroke-linejoin="round"/>
+              <ellipse cx="230" cy="70" rx="44" ry="10" fill="#c79a52" stroke="#a97634" stroke-width="3"/>
+              <g><circle cx="211" cy="70" r="11" fill="#D92F32"/><circle cx="232" cy="65" r="11" fill="#F4C75B"/><circle cx="250" cy="71" r="11" fill="#2fa36b"/></g>
+              <g id="fly"></g>
+              <path d="M187 73Q230 90 273 73L262 118Q230 128 198 118Z" fill="#f3dba6" fill-opacity=".9" stroke="#a97634" stroke-width="3" stroke-linejoin="round"/>
+              <g fill="none" stroke="#a97634" stroke-width="1.6" opacity=".8"><path d="M200 80l14 42M216 84l10 40M233 85l2 40M250 84l-8 40M264 80l-14 42M191 94q39 14 78 0M194 108q36 12 72 0"/></g>
+              <path d="M186 70Q230 90 274 70" fill="none" stroke="#a97634" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <g>
+              <circle cx="150" cy="268" r="11" fill="#2f7fd1"/><circle cx="174" cy="278" r="11" fill="#f08ab8"/><circle cx="196" cy="266" r="11" fill="#D92F32"/><circle cx="128" cy="282" r="11" fill="#F4C75B"/>
+              <g fill="#fff" opacity=".55"><circle cx="146" cy="264" r="3.2"/><circle cx="170" cy="274" r="3.2"/><circle cx="192" cy="262" r="3.2"/><circle cx="124" cy="278" r="3.2"/><circle cx="207" cy="66" r="3.2"/><circle cx="228" cy="61" r="3.2"/><circle cx="246" cy="67" r="3.2"/></g>
+            </g>
+            <path d="M112 196Q150 60 222 62" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" opacity=".9"/>
+          </svg>
+          <span class="tapchip" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.200" fill="#D92F32"/><circle cx="8" cy="8" r="6.400" fill="none" stroke="#D92F32" stroke-width="1.600" opacity=".55"/></svg>タップでなげる</span>
+        </button>
+        <div class="host host-l"><button class="chr chr-squirrel" type="button" data-chr="squirrel" aria-label="リス（タップすると よろこぶよ）" style="--ar:0.6000"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/squirrel.webp" width="336" height="560" alt="" decoding="async" loading="lazy"><svg viewBox="0 0 558 929" aria-hidden="true"><g transform="translate(284 66) rotate(-9) scale(2.45) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><path d="M206 506C245 532 312 532 350 504L356 526C314 558 244 558 200 528Z" fill="url(#gFur)" stroke="#b9c6da" stroke-width="4" stroke-linejoin="round"/><circle cx="279" cy="602" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><circle cx="279" cy="660" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><g fill="#f19b4e" stroke="#8a4a1c" stroke-width="4"><g transform="rotate(4 196 320)"><ellipse class="lid" cx="196" cy="320" rx="40" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g><g transform="rotate(-4 320 320)"><ellipse class="lid" cx="320" cy="320" rx="37" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g></g></svg></span></span></span></button></div>
+        <p class="say say-l">えいっ！ はいるかな？</p>
+      </div>
+      <div class="card-text">
+        <h3 lang="en">ball-toss game</h3>
+        <p class="ja">玉入れゲーム</p>
+        <p class="desc"><span class="ph">カラフルなボールを</span> <span class="ph">カゴに投げ入れる</span> <span class="ph">楽しいゲーム。</span></p>
+      </div>
+    </li>
+
+    <!-- 2 Christmas BINGO -->
+    <li class="sec card c-bingo is-bingo" data-demo="bingo">
+      <div class="scene-wrap">
+        <div class="no" aria-hidden="true"><svg viewBox="0 0 54 62"><path d="M27 1v8" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/><rect x="21" y="7" width="12" height="9" rx="3" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="27" cy="38" r="22" fill="#176B45" stroke="#fff" stroke-width="4"/><ellipse cx="18" cy="29" rx="6" ry="3.6" fill="#fff" opacity=".4" transform="rotate(-32 18 29)"/><text x="27" y="47.500" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="26" fill="#fff">2</text></svg></div>
+        <div class="scene">
+          <p class="bingo-ban" aria-hidden="true">BINGO!</p>
+          <div class="bingo">
+            <div class="bingo-h" aria-hidden="true"><span>B</span><span>I</span><span>N</span><span>G</span><span>O</span></div>
+            <div class="bingo-g" role="group" aria-label="3×3のビンゴカード。マスをタップすると光ります">
+              <button class="cell on" type="button" aria-label="ツリーのマス" aria-pressed="true"><svg viewBox="0 0 40 40"><path d="M20 3 30 17h-5l8 11H7l8-11h-5Z" fill="#1f8a57"/><rect x="17" y="28" width="6" height="8" rx="1" fill="#8a5a2b"/><circle cx="17" cy="20" r="2" fill="#F4C75B"/><circle cx="24" cy="24" r="2" fill="#ff6b6b"/></svg></button>
+              <button class="cell" type="button" aria-label="星のマス" aria-pressed="false"><svg viewBox="0 0 40 40"><use href="#i-star" x="3" y="3" width="34" height="34"/></svg></button>
+              <button class="cell" type="button" aria-label="ベルのマス" aria-pressed="false"><svg viewBox="0 0 40 40"><path d="M20 5c-7 0-10 6-10 13v7l-3 4h26l-3-4v-7c0-7-3-13-10-13Z" fill="#F4C75B" stroke="#b7862a" stroke-width="1.5"/><circle cx="20" cy="32.500" r="3.500" fill="#b7862a"/><path d="M14 6c2-4 10-4 12 0" fill="none" stroke="#D92F32" stroke-width="3" stroke-linecap="round"/></svg></button>
+              <button class="cell" type="button" aria-label="キャンディのマス" aria-pressed="false"><svg viewBox="0 0 40 40"><path d="M27 35V14a7.500 7.500 0 0 0-15 0v3" fill="none" stroke="#D92F32" stroke-width="6.500" stroke-linecap="round"/><path d="M27 35V14a7.500 7.500 0 0 0-15 0v3" fill="none" stroke="#fff" stroke-width="6.500" stroke-dasharray="4 7" stroke-dashoffset="2"/></svg></button>
+              <span class="cell free on">FREE</span>
+              <button class="cell" type="button" aria-label="雪だるまのマス" aria-pressed="false"><svg viewBox="0 0 40 40"><circle cx="20" cy="27" r="10" fill="#fff" stroke="#9fb6d6" stroke-width="2"/><circle cx="20" cy="12" r="7" fill="#fff" stroke="#9fb6d6" stroke-width="2"/><circle cx="17.500" cy="11" r="1.200" fill="#2b2340"/><circle cx="22.500" cy="11" r="1.200" fill="#2b2340"/><path d="M20 13.500l5 1.500-5 1Z" fill="#f08a2c"/><path d="M13 18.500h14" stroke="#D92F32" stroke-width="3" stroke-linecap="round"/></svg></button>
+              <button class="cell" type="button" aria-label="プレゼントのマス" aria-pressed="false"><svg viewBox="0 0 40 40"><use href="#i-gift" x="3" y="2" width="34" height="34"/></svg></button>
+              <button class="cell" type="button" aria-label="雪の結晶のマス" aria-pressed="false"><svg viewBox="0 0 40 40" style="color:#4a9fe0"><use href="#i-flake" x="4" y="4" width="32" height="32"/></svg></button>
+              <button class="cell on" type="button" aria-label="オーナメントのマス" aria-pressed="true"><svg viewBox="0 0 40 40"><rect x="17" y="4" width="6" height="6" rx="1.500" fill="#b7862a"/><circle cx="20" cy="23" r="13" fill="#2f7fd1"/><path d="M8 20q12 7 24 0" fill="none" stroke="#fff" stroke-width="2.500"/><circle cx="15" cy="16" r="2.500" fill="#fff" opacity=".7"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <span class="tapchip" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.200" fill="#D92F32"/><circle cx="8" cy="8" r="6.400" fill="none" stroke="#D92F32" stroke-width="1.600" opacity=".55"/></svg>マスをタップ</span>
+        <div class="host host-l"><button class="chr chr-robot" type="button" data-chr="robot" aria-label="ロボット（タップすると よろこぶよ）" style="--ar:0.6393"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/robot.webp" width="358" height="560" alt="" decoding="async" loading="lazy"><svg viewBox="0 0 586 917" aria-hidden="true"><circle cx="226" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="250" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="274" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="298" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="322" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="346" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="370" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="394" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="238" cy="398" r="4" fill="#F4C75B"/><circle cx="286" cy="402" r="4" fill="#F4C75B"/><circle cx="334" cy="398" r="4" fill="#F4C75B"/><circle cx="382" cy="402" r="4" fill="#F4C75B"/><path d="M172 552C200 672 430 680 480 558" fill="none" stroke="#0f5132" stroke-width="5" stroke-linecap="round"/><circle class="tw" cx="186" cy="601" r="24" fill="#ff5a5a" opacity=".3"/><rect x="180" y="582" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="186" cy="602" rx="11.5" ry="15" fill="#ff5a5a" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="241" cy="645" r="24" fill="#ffd34d" opacity=".3"/><rect x="235" y="626" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="241" cy="646" rx="11.5" ry="15" fill="#ffd34d" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw3" cx="318" cy="662" r="24" fill="#59b8ff" opacity=".3"/><rect x="312" y="643" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw3" cx="318" cy="663" rx="11.5" ry="15" fill="#59b8ff" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw" cx="397" cy="649" r="24" fill="#ff8fc6" opacity=".3"/><rect x="391" y="630" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="397" cy="650" rx="11.5" ry="15" fill="#ff8fc6" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="460" cy="607" r="24" fill="#57d38c" opacity=".3"/><rect x="454" y="588" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="460" cy="608" rx="11.5" ry="15" fill="#57d38c" stroke="rgba(0,0,0,.25)" stroke-width="2"/><g transform="translate(311 -24) scale(6)"><circle r="12" fill="#fff3a8" opacity=".35" class="tw"/><g class="topstar"><path d="M0.00 -10.50L2.70 -3.72L9.99 -3.24L4.37 1.42L6.17 8.49L0.00 4.60L-6.17 8.49L-4.37 1.42L-9.99 -3.24L-2.70 -3.72Z" fill="url(#gGold)" stroke="#b7862a" stroke-width="1" stroke-linejoin="round"/></g></g><g fill="#d3dcea" stroke="#3a6fc0" stroke-width="5"><g transform="rotate(0 224 218)"><ellipse class="lid" cx="224" cy="218" rx="47" ry="53" style="--bd:5.2s;--bl:-1.0s"/></g><g transform="rotate(0 400 222)"><ellipse class="lid" cx="400" cy="222" rx="48" ry="51" style="--bd:5.2s;--bl:-1.0s"/></g></g></svg></span></span></span></button></div>
+      </div>
+      <div class="card-text">
+        <h3 lang="en">Christmas BINGO</h3>
+        <p class="ja">クリスマスビンゴ</p>
+        <p class="desc"><span class="ph">そろうかな？</span> <span class="ph">ドキドキの</span> <span class="ph">ビンゴタイム！</span></p>
+      </div>
+    </li>
+
+    <!-- 3 Pin the Nose on Rudolph -->
+    <li class="sec card c-rudolph" data-demo="rudolph">
+      <div class="scene-wrap">
+        <div class="no" aria-hidden="true"><svg viewBox="0 0 54 62"><path d="M27 1v8" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/><rect x="21" y="7" width="12" height="9" rx="3" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="27" cy="38" r="22" fill="#D92F32" stroke="#fff" stroke-width="4"/><ellipse cx="18" cy="29" rx="6" ry="3.6" fill="#fff" opacity=".4" transform="rotate(-32 18 29)"/><text x="27" y="47.500" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="26" fill="#fff">3</text></svg></div>
+        <button class="scene" type="button" aria-label="鼻つけのアニメーションをもう一度見る">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <defs><radialGradient id="rdSpot" cx="44%" cy="52%" r="62%"><stop offset="0" stop-color="#2e8a5c"/><stop offset="1" stop-color="#0c3323"/></radialGradient></defs>
+            <rect width="320" height="300" fill="url(#rdSpot)"/>
+            <g fill="#0b3a27"><path d="M-6 300 22 170l28 130ZM30 300 54 200l24 100ZM252 300l26-150 26 150ZM288 300l22-110 22 110Z"/></g>
+            <g fill="#fff"><circle cx="38" cy="40" r="2"/><circle cx="286" cy="58" r="2.400"/><circle cx="246" cy="26" r="1.600"/><circle cx="82" cy="20" r="1.600"/><circle cx="300" cy="118" r="1.800"/><circle cx="16" cy="108" r="1.800"/></g>
+            <path d="M0 300V276Q80 258 170 270T320 264V300Z" fill="#eaf4ff"/>
+            <g class="rd-head">
+              <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M112 100C102 76 84 66 78 40M99 76C85 74 72 66 67 52M87 56C92 46 92 38 89 28M168 100c10-24 28-34 34-60M181 76c14-2 27-10 32-24M193 56c-5-10-5-18-2-28" stroke="#5c3a17" stroke-width="15"/>
+                <path d="M112 100C102 76 84 66 78 40M99 76C85 74 72 66 67 52M87 56C92 46 92 38 89 28M168 100c10-24 28-34 34-60M181 76c14-2 27-10 32-24M193 56c-5-10-5-18-2-28" stroke="#b9854a" stroke-width="9"/>
+              </g>
+              <g stroke="#7a4b2a" stroke-width="3.500"><ellipse cx="80" cy="128" rx="27" ry="14" transform="rotate(-24 80 128)" fill="#c98b52"/><ellipse cx="200" cy="128" rx="27" ry="14" transform="rotate(24 200 128)" fill="#c98b52"/></g>
+              <ellipse cx="80" cy="128" rx="16" ry="7" transform="rotate(-24 80 128)" fill="#f2b7a0"/><ellipse cx="200" cy="128" rx="16" ry="7" transform="rotate(24 200 128)" fill="#f2b7a0"/>
+              <path d="M140 86c48 0 68 34 64 72-3 34-16 76-64 80-48-4-61-46-64-80-4-38 16-72 64-72Z" fill="#cf9259" stroke="#7a4b2a" stroke-width="4"/>
+              <path d="M140 92c30 0 46 14 52 34-16-12-34-16-52-16s-36 4-52 16c6-20 22-34 52-34Z" fill="#dda66c" opacity=".7"/>
+              <ellipse cx="140" cy="200" rx="48" ry="36" fill="#f6dcb8" stroke="#c99a66" stroke-width="2.500"/>
+              <g><ellipse cx="111" cy="150" rx="13" ry="16" fill="#fff" stroke="#7a4b2a" stroke-width="2.500"/><ellipse cx="169" cy="150" rx="13" ry="16" fill="#fff" stroke="#7a4b2a" stroke-width="2.500"/><circle cx="113" cy="153" r="8.500" fill="#2b1a10"/><circle cx="167" cy="153" r="8.500" fill="#2b1a10"/><circle cx="116" cy="149" r="3" fill="#fff"/><circle cx="170" cy="149" r="3" fill="#fff"/></g>
+              <g fill="#cf9259" stroke="#7a4b2a" stroke-width="2.500"><ellipse class="lid" cx="111" cy="150" rx="14" ry="17" style="--bd:4.300s"/><ellipse class="lid" cx="169" cy="150" rx="14" ry="17" style="--bd:4.300s"/></g>
+              <circle cx="92" cy="188" r="12" fill="#f79c9c" opacity=".55"/><circle cx="188" cy="188" r="12" fill="#f79c9c" opacity=".55"/>
+              <path d="M118 216q22 18 44 0" fill="none" stroke="#7a4b2a" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="140" cy="190" r="23" fill="none" stroke="#b0703a" stroke-width="2.500" stroke-dasharray="5 6"/>
+              <path d="M96 240q44 22 88 0l4 16q-48 24-96 0Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="140" cy="262" r="10" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.500"/>
+            </g>
+            <path class="trail" d="M258 252C262 200 226 196 186 220S160 178 150 196" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+            <circle class="nose-glow" cx="140" cy="190" r="34" fill="#ff7a6e"/>
+            <g class="nose"><circle cx="140" cy="190" r="23" fill="url(#gNose)" stroke="#8f1b22" stroke-width="3"/><ellipse cx="132" cy="181" rx="7" ry="4.500" fill="#fff" opacity=".85" transform="rotate(-28 132 181)"/></g>
+          </svg>
+          <span class="tapchip" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.200" fill="#D92F32"/><circle cx="8" cy="8" r="6.400" fill="none" stroke="#D92F32" stroke-width="1.600" opacity=".55"/></svg>タップでもういちど</span>
+        </button>
+        <div class="host host-r"><button class="chr chr-bird" type="button" data-chr="bird" aria-label="とり（タップすると よろこぶよ）" style="--ar:0.7929;--wa:-13deg;--wd:-0.66s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/bird.webp" width="444" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/bird-arm.webp" width="444" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:68% 50%"><svg viewBox="0 0 707 892" aria-hidden="true"><g transform="translate(252 108) rotate(-20) scale(2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g transform="translate(476 112) rotate(20) scale(-2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g class="dangle"><path d="M282 392 330 404 320 522 272 512Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M276 478 322 488M274 496 321 506" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M258 352C320 394 400 394 464 350L470 388C400 434 318 434 252 392Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="304" cy="400" rx="27" ry="21" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5"/><g fill="#7384a8" stroke="#33415f" stroke-width="4"><g transform="rotate(0 326 212)"><ellipse class="lid" cx="326" cy="212" rx="19" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g><g transform="rotate(0 403 214)"><ellipse class="lid" cx="403" cy="214" rx="18" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g></g></svg></span></span></span></button></div>
+        <p class="say say-r" style="right:auto;left:14px">おはなは どこかな？</p>
+      </div>
+      <div class="card-text">
+        <h3 lang="en">Pin the Nose on Rudolph</h3>
+        <p class="ja">トナカイの鼻つけゲーム</p>
+        <p class="desc"><span class="ph">赤いおはなを</span> <span class="ph">トナカイさんに</span> <span class="ph">ぴたっ！</span></p>
+      </div>
+    </li>
+
+    <!-- 4 Making keychains -->
+    <li class="sec card c-key" data-demo="key">
+      <div class="scene-wrap">
+        <div class="no" aria-hidden="true"><svg viewBox="0 0 54 62"><path d="M27 1v8" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/><rect x="21" y="7" width="12" height="9" rx="3" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="27" cy="38" r="22" fill="#c2377a" stroke="#fff" stroke-width="4"/><ellipse cx="18" cy="29" rx="6" ry="3.6" fill="#fff" opacity=".4" transform="rotate(-32 18 29)"/><text x="27" y="47.500" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="26" fill="#fff">4</text></svg></div>
+        <button class="scene" type="button" aria-label="キーホルダーをゆらす">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <rect width="320" height="300" fill="#fdeef5"/>
+            <g fill="#f8cfe0"><circle cx="30" cy="34" r="5"/><circle cx="96" cy="70" r="5"/><circle cx="40" cy="120" r="5"/><circle cx="290" cy="40" r="5"/><circle cx="270" cy="120" r="5"/><circle cx="300" cy="200" r="5"/><circle cx="110" cy="150" r="5"/><circle cx="252" cy="250" r="5"/></g>
+            <path d="M0 300V262H320V300Z" fill="#f6c9dc"/>
+            <g>
+              <use href="#i-star" x="150" y="262" width="24" height="24"/><use href="#i-heart" x="262" y="262" width="24" height="24"/>
+              <circle cx="212" cy="276" r="8" fill="#7fd0ff" stroke="#3f9ad6" stroke-width="2"/><circle cx="232" cy="270" r="6" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="296" cy="280" r="7" fill="#2fa36b" stroke="#126640" stroke-width="2"/>
+            </g>
+            <rect x="176" y="0" width="40" height="14" rx="5" fill="#d9a9c0"/><path d="M196 12v24" stroke="#b98aa2" stroke-width="4" stroke-linecap="round"/>
+            <g class="kc-tap"><g class="kc-swing">
+              <g class="kc-ring"><circle cx="196" cy="58" r="23" fill="none" stroke="#8496b3" stroke-width="8"/><circle cx="196" cy="58" r="23" fill="none" stroke="#dbe5f3" stroke-width="3"/></g>
+              <g fill="none" stroke="#8496b3" stroke-width="4.500">
+                <ellipse class="kc-link" style="--k:0" cx="196" cy="94" rx="6.500" ry="11"/><ellipse class="kc-link" style="--k:1" cx="196" cy="112" rx="6.500" ry="11"/><ellipse class="kc-link" style="--k:2" cx="196" cy="130" rx="6.500" ry="11"/>
+                <circle class="kc-link" style="--k:3" cx="196" cy="150" r="8"/>
+              </g>
+              <g class="kc-ch"><g class="kc-in" style="--kx:-190px;--ky:30px;--kr:-120deg;--kd:1.150s">
+                <path d="M192 154 152 190" stroke="#8496b3" stroke-width="3" stroke-linecap="round"/>
+                <use href="#i-star" x="112" y="178" width="62" height="62"/>
+              </g></g>
+              <g class="kc-ch c2"><g class="kc-in" style="--kx:0px;--ky:150px;--kr:40deg;--kd:1.400s">
+                <path d="M196 158v52" stroke="#8496b3" stroke-width="3" stroke-linecap="round"/>
+                <use href="#i-heart" x="170" y="204" width="54" height="54"/>
+              </g></g>
+              <g class="kc-ch c3"><g class="kc-in" style="--kx:170px;--ky:30px;--kr:120deg;--kd:1.650s">
+                <path d="M200 154 240 184" stroke="#8496b3" stroke-width="3" stroke-linecap="round"/>
+                <g transform="translate(248 180)"><path d="M0 0 18 24H9l14 20H-23l14-20h-9Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.500" stroke-linejoin="round"/><rect x="-5" y="44" width="10" height="9" rx="2" fill="#8a5a2b" stroke="#5c3a17" stroke-width="2"/><circle cx="-5" cy="22" r="3" fill="#ff6b6b"/><circle cx="6" cy="32" r="3" fill="#F4C75B"/><circle cx="-10" cy="36" r="3" fill="#7fd0ff"/></g>
+              </g></g>
+              <use class="kc-click" style="--kd:1.750s" href="#i-spark" x="136" y="150" width="40" height="40"/>
+              <use class="kc-click" style="--kd:2s" href="#i-spark" x="176" y="176" width="40" height="40"/>
+              <use class="kc-click" style="--kd:2.250s" href="#i-spark" x="222" y="150" width="40" height="40"/>
+            </g></g>
+          </svg>
+          <span class="tapchip" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.200" fill="#D92F32"/><circle cx="8" cy="8" r="6.400" fill="none" stroke="#D92F32" stroke-width="1.600" opacity=".55"/></svg>タップでゆれる</span>
+        </button>
+        <div class="host host-l"><button class="chr chr-rabbit" type="button" data-chr="rabbit" aria-label="ウサギ（タップすると よろこぶよ）" style="--ar:0.4911;--wa:-16deg;--wd:-1.89s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/rabbit.webp" width="275" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/rabbit-arm.webp" width="275" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:69.5% 61.5%"><svg viewBox="0 0 445 906" aria-hidden="true"><path d="M190 524C222 548 272 548 300 522C334 534 360 562 372 606C330 632 285 640 247 640C206 640 158 632 118 606C130 564 158 534 190 524Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#b9c6da" stroke-width="27" stroke-linecap="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/><g transform="translate(247 560) scale(1.0)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#f3dcbd" stroke="#a8845a" stroke-width="3.5"><g transform="rotate(0 188 388)"><ellipse class="lid" cx="188" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g><g transform="rotate(0 295 388)"><ellipse class="lid" cx="295" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g></g></svg></span></span></span></button></div>
+        <p class="say say-l" style="left:calc(var(--u)*24)">どんなの つくろう？</p>
+      </div>
+      <div class="card-text">
+        <h3 lang="en">Making keychains</h3>
+        <p class="ja">キーホルダーづくり</p>
+        <p class="desc"><span class="ph">かわいいキーホルダーを</span> <span class="ph">つくる</span> <span class="ph">クラフト体験。</span></p>
+      </div>
+    </li>
+
+    <!-- 5 Christmas gift -->
+    <li class="sec card c-gift" data-demo="gift">
+      <div class="scene-wrap">
+        <div class="no" aria-hidden="true"><svg viewBox="0 0 54 62"><path d="M27 1v8" stroke="#F4C75B" stroke-width="3" stroke-linecap="round"/><rect x="21" y="7" width="12" height="9" rx="3" fill="#F4C75B" stroke="#b7862a" stroke-width="2"/><circle cx="27" cy="38" r="22" fill="#e2a11f" stroke="#fff" stroke-width="4"/><ellipse cx="18" cy="29" rx="6" ry="3.6" fill="#fff" opacity=".4" transform="rotate(-32 18 29)"/><text x="27" y="47.500" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="26" fill="#fff">5</text></svg></div>
+        <button class="scene" type="button" aria-label="プレゼントの箱をもう一度あける">
+          <svg viewBox="0 0 320 300" aria-hidden="true">
+            <defs><radialGradient id="gfBg" cx="40%" cy="62%" r="70%"><stop offset="0" stop-color="#2a5fae"/><stop offset="1" stop-color="#081f4d"/></radialGradient></defs>
+            <rect width="320" height="300" fill="url(#gfBg)"/>
+            <g fill="#fff" opacity=".8"><circle cx="30" cy="40" r="1.800"/><circle cx="270" cy="30" r="2"/><circle cx="296" cy="96" r="1.600"/><circle cx="20" cy="150" r="1.600"/><circle cx="236" cy="70" r="1.400"/><circle cx="60" cy="96" r="1.400"/></g>
+            <ellipse cx="130" cy="268" rx="96" ry="14" fill="#06173b" opacity=".55"/>
+            <g class="g-rays">
+              <path d="M96 178 20 40 74 22 122 178ZM118 178 104 4h52l-14 174ZM140 178 196 20l50 26-84 132Z" fill="url(#gRay)"/>
+              <ellipse cx="130" cy="176" rx="62" ry="20" fill="#fff6c9" opacity=".9"/>
+            </g>
+            <g class="g-box">
+              <rect x="76" y="176" width="108" height="88" rx="9" fill="url(#gRed)" stroke="#8f1b22" stroke-width="3.500"/>
+              <rect x="119" y="176" width="22" height="88" fill="url(#gGold)"/>
+              <path d="M76 190h108" stroke="#8f1b22" stroke-width="3" opacity=".35"/>
+            </g>
+            <g class="g-lid">
+              <rect x="66" y="150" width="128" height="32" rx="9" fill="#ee4a4c" stroke="#8f1b22" stroke-width="3.500"/>
+              <rect x="119" y="150" width="22" height="32" fill="url(#gGold)"/>
+              <path d="M130 150c-14-26-40-22-36-8 3 10 20 10 36 8ZM130 150c14-26 40-22 36-8-3 10-20 10-36 8Z" fill="url(#gGold)" stroke="#b7862a" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="130" cy="149" r="8" fill="#F4C75B" stroke="#b7862a" stroke-width="3"/>
+            </g>
+            <g>
+              <use class="g-star" href="#i-star" x="114" y="150" width="32" height="32" style="--tx:-84px;--ty:-96px;--tr:-20deg;--ts:1.100;--td:0s"/>
+              <use class="g-star" href="#i-star" x="114" y="150" width="32" height="32" style="--tx:-34px;--ty:-128px;--tr:14deg;--ts:.750;--td:.080s"/>
+              <use class="g-star" href="#i-star" x="114" y="150" width="32" height="32" style="--tx:22px;--ty:-112px;--tr:-8deg;--ts:1.300;--td:.160s"/>
+              <use class="g-star" href="#i-star" x="114" y="150" width="32" height="32" style="--tx:84px;--ty:-126px;--tr:24deg;--ts:.800;--td:.050s"/>
+              <use class="g-star" href="#i-star" x="114" y="150" width="32" height="32" style="--tx:126px;--ty:-64px;--tr:-16deg;--ts:1;--td:.220s"/>
+              <use class="g-star" href="#i-spark" x="114" y="150" width="32" height="32" style="--tx:-112px;--ty:-34px;--tr:0deg;--ts:.900;--td:.120s"/>
+              <use class="g-star" href="#i-spark" x="114" y="150" width="32" height="32" style="--tx:-4px;--ty:-70px;--tr:0deg;--ts:.700;--td:.260s"/>
+              <use class="g-star" href="#i-spark" x="114" y="150" width="32" height="32" style="--tx:58px;--ty:-58px;--tr:0deg;--ts:1;--td:.180s"/>
+              <use class="g-star" href="#i-spark" x="114" y="150" width="32" height="32" style="--tx:-58px;--ty:-52px;--tr:0deg;--ts:.600;--td:.300s"/>
+            </g>
+          </svg>
+          <span class="tapchip" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.200" fill="#D92F32"/><circle cx="8" cy="8" r="6.400" fill="none" stroke="#D92F32" stroke-width="1.600" opacity=".55"/></svg>タップであける</span>
+        </button>
+        <div class="host host-r"><button class="chr chr-panda" type="button" data-chr="panda" aria-label="パンダ（タップすると よろこぶよ）" style="--ar:0.7768;--wa:15deg;--wd:-0.08s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/panda.webp" width="435" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/panda-arm.webp" width="435" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:27.5% 55.5%"><svg viewBox="0 0 682 878" aria-hidden="true"><path d="M232 428C290 458 392 458 452 428C486 438 512 464 528 502C476 538 404 550 341 550C278 550 206 538 154 502C170 464 196 438 232 428Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#b9c6da" stroke-width="29" stroke-linecap="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/><g transform="translate(341 470) scale(1.25)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#0e1622" stroke="#8894a8" stroke-width="3"><g transform="rotate(0 267 262)"><ellipse class="lid" cx="267" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g><g transform="rotate(0 407 262)"><ellipse class="lid" cx="407" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g></g></svg></span></span></span></button></div>
+        <p class="say say-r" style="right:auto;left:14px">わくわく、たのしみ！</p>
+      </div>
+      <div class="card-text">
+        <h3 lang="en">Christmas gift</h3>
+        <p class="ja">クリスマスプレゼント</p>
+        <p class="desc"><span class="ph">キラキラの</span> <span class="ph">プレゼントタイムも</span> <span class="ph">おたのしみに。</span></p>
+      </div>
+    </li>
+  </ol>
+  <div class="play-end" aria-hidden="true"><svg viewBox="0 0 400 70" preserveAspectRatio="none"><path d="M0 70V38C50 10 100 8 150 26s90 22 140 4 80-20 110-4V70Z" fill="#F8D8E7"/></svg></div>
+</section>
+
+<!-- ================= 04 Animal Friends ================= -->
+<section class="sec animals" id="animals">
+  <p class="sub">とくべつな おたのしみ</p>
+  <h2 class="h-en">Animal Friends</h2>
+  <div class="paddock">
+    <svg viewBox="0 0 400 296" preserveAspectRatio="none" aria-hidden="true">
+      <ellipse cx="320" cy="60" rx="38" ry="38" fill="#fff3c9"/>
+      <g fill="#fff"><ellipse cx="80" cy="60" rx="34" ry="12"/><ellipse cx="106" cy="50" rx="22" ry="12"/><ellipse cx="236" cy="96" rx="26" ry="9"/></g>
+      <path d="M0 296V150C70 118 130 116 200 136s140 10 200-22V296Z" fill="#d9eec6"/>
+      <path d="M0 296V206C80 184 150 190 220 202s120 2 180-14V296Z" fill="#c4e4ad"/>
+    </svg>
+    <button class="ani a-alpaca" type="button" aria-label="アルパカ">
+      <svg viewBox="0 0 110 190" aria-hidden="true">
+        <path d="M30 190V96c0-10 10-14 26-14s26 4 26 14v94Z" fill="#f1cfa6" stroke="#b98a5c" stroke-width="3"/>
+        <g fill="#f1cfa6" stroke="#b98a5c" stroke-width="3"><circle cx="30" cy="110" r="10"/><circle cx="82" cy="110" r="10"/><circle cx="29" cy="134" r="10"/><circle cx="83" cy="134" r="10"/><circle cx="30" cy="158" r="10"/><circle cx="82" cy="158" r="10"/></g>
+        <path d="M30 100h52v90H30Z" fill="#f1cfa6"/>
+        <path d="M28 34C20 22 20 10 24 4c8 6 14 16 16 26ZM84 34c8-12 8-24 4-30-8 6-14 16-16 26Z" fill="#e8bf90" stroke="#b98a5c" stroke-width="3" stroke-linejoin="round"/>
+        <ellipse cx="56" cy="64" rx="31" ry="33" fill="#f6dcbb" stroke="#b98a5c" stroke-width="3"/>
+        <g fill="#fff4e2" stroke="#b98a5c" stroke-width="3"><circle cx="40" cy="34" r="12"/><circle cx="56" cy="27" r="14"/><circle cx="72" cy="34" r="12"/></g>
+        <path d="M34 40h44l-4-10H38Z" fill="#fff4e2"/>
+        <ellipse cx="56" cy="80" rx="17" ry="14" fill="#fff8ec" stroke="#d2ab82" stroke-width="2"/>
+        <circle cx="42" cy="60" r="4.500" fill="#3b2618"/><circle cx="70" cy="60" r="4.500" fill="#3b2618"/><circle cx="43.500" cy="58.500" r="1.500" fill="#fff"/><circle cx="71.500" cy="58.500" r="1.500" fill="#fff"/>
+        <path d="M52 74h8l-4 5Z" fill="#b9806a"/><path class="chew" d="M49 84q7 6 14 0" fill="none" stroke="#b9806a" stroke-width="2.500" stroke-linecap="round"/>
+        <circle cx="33" cy="74" r="6" fill="#f7a9b4" opacity=".6"/><circle cx="79" cy="74" r="6" fill="#f7a9b4" opacity=".6"/>
+      </svg>
+    </button>
+    <button class="ani a-sheep" type="button" aria-label="ヒツジ">
+      <svg viewBox="0 0 170 130" aria-hidden="true">
+        <g fill="#6b5a55"><rect x="58" y="92" width="11" height="32" rx="5"/><rect x="82" y="96" width="11" height="30" rx="5"/><rect x="112" y="96" width="11" height="30" rx="5"/><rect x="134" y="92" width="11" height="32" rx="5"/></g>
+        <g fill="#fffdf8" stroke="#dccbbb" stroke-width="3"><circle cx="70" cy="56" r="24"/><circle cx="100" cy="46" r="26"/><circle cx="132" cy="56" r="24"/><circle cx="146" cy="78" r="20"/><circle cx="120" cy="92" r="22"/><circle cx="88" cy="92" r="22"/><circle cx="64" cy="82" r="20"/></g>
+        <ellipse cx="104" cy="72" rx="44" ry="28" fill="#fffdf8"/>
+        <g stroke="#b99783" stroke-width="2.500"><ellipse cx="18" cy="62" rx="12" ry="6.500" transform="rotate(-18 18 62)" fill="#f4d3c0"/><ellipse cx="70" cy="60" rx="12" ry="6.500" transform="rotate(18 70 60)" fill="#f4d3c0"/></g>
+        <ellipse cx="44" cy="70" rx="23" ry="26" fill="#f9e3d3" stroke="#b99783" stroke-width="3"/>
+        <g fill="#fffdf8" stroke="#dccbbb" stroke-width="3"><circle cx="32" cy="46" r="10"/><circle cx="45" cy="41" r="12"/><circle cx="57" cy="46" r="10"/></g>
+        <circle cx="35" cy="68" r="4" fill="#3b2618"/><circle cx="54" cy="68" r="4" fill="#3b2618"/>
+        <g fill="#f9e3d3" stroke="#b99783" stroke-width="2"><ellipse class="lid" cx="35" cy="68" rx="5.500" ry="5.500" style="--bd:3.600s"/><ellipse class="lid" cx="54" cy="68" rx="5.500" ry="5.500" style="--bd:3.600s"/></g>
+        <path d="M41 79h7l-3.500 4Z" fill="#c98a86"/><path d="M38 86q6.500 5 13 0" fill="none" stroke="#c98a86" stroke-width="2.500" stroke-linecap="round"/>
+        <circle cx="28" cy="80" r="5" fill="#f7a9b4" opacity=".6"/><circle cx="61" cy="80" r="5" fill="#f7a9b4" opacity=".6"/>
+      </svg>
+    </button>
+    <button class="ani a-goat" type="button" aria-label="ヤギ">
+      <svg viewBox="0 0 160 150" aria-hidden="true">
+        <g fill="#efe0cc" stroke="#b79a7d" stroke-width="3"><rect x="34" y="98" width="12" height="44" rx="6"/><rect x="58" y="102" width="12" height="42" rx="6"/><rect x="92" y="102" width="12" height="42" rx="6"/></g>
+        <path d="M22 70c-8-4-12-12-10-18" fill="none" stroke="#b79a7d" stroke-width="6" stroke-linecap="round"/>
+        <ellipse cx="66" cy="84" rx="50" ry="32" fill="#fff8ec" stroke="#b79a7d" stroke-width="3"/>
+        <path d="M108 30c-2-14 4-24 14-28M126 30c4-12 12-18 22-18" fill="none" stroke="#c9a877" stroke-width="7" stroke-linecap="round"/>
+        <g stroke="#b79a7d" stroke-width="2.500" fill="#f4dcc4"><ellipse cx="92" cy="48" rx="13" ry="6.500" transform="rotate(-20 92 48)"/><ellipse cx="146" cy="50" rx="13" ry="6.500" transform="rotate(22 146 50)"/></g>
+        <path d="M94 54c0-18 10-28 24-28s24 10 24 28c0 20-8 36-24 36s-24-16-24-36Z" fill="#fff8ec" stroke="#b79a7d" stroke-width="3"/>
+        <path d="M110 88c2 12 6 18 8 22 2-4 6-10 8-22Z" fill="#fff8ec" stroke="#b79a7d" stroke-width="2.500" stroke-linejoin="round"/>
+        <circle cx="107" cy="54" r="4.200" fill="#3b2618"/><circle cx="129" cy="54" r="4.200" fill="#3b2618"/><circle cx="108.400" cy="52.600" r="1.400" fill="#fff"/><circle cx="130.400" cy="52.600" r="1.400" fill="#fff"/>
+        <ellipse cx="118" cy="72" rx="12" ry="9" fill="#f9d9d2"/><path d="M114 69h8l-4 5Z" fill="#c98a86"/><path class="chew" d="M112 78q6 5 12 0" fill="none" stroke="#c98a86" stroke-width="2.500" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="ani a-rabbit" type="button" aria-label="ウサギ">
+      <svg viewBox="0 0 110 130" aria-hidden="true">
+        <g class="ear ear-l"><ellipse cx="40" cy="34" rx="10" ry="28" transform="rotate(-10 40 34)" fill="#fff" stroke="#c9b3a6" stroke-width="3"/><ellipse cx="40" cy="36" rx="4.500" ry="19" transform="rotate(-10 40 36)" fill="#f9c3d0"/></g>
+        <g class="ear ear-r"><ellipse cx="66" cy="34" rx="10" ry="28" transform="rotate(12 66 34)" fill="#fff" stroke="#c9b3a6" stroke-width="3"/><ellipse cx="66" cy="36" rx="4.500" ry="19" transform="rotate(12 66 36)" fill="#f9c3d0"/></g>
+        <circle cx="92" cy="106" r="10" fill="#fff" stroke="#c9b3a6" stroke-width="3"/>
+        <ellipse cx="60" cy="104" rx="34" ry="24" fill="#fff" stroke="#c9b3a6" stroke-width="3"/>
+        <circle cx="52" cy="76" r="29" fill="#fff" stroke="#c9b3a6" stroke-width="3"/>
+        <circle cx="41" cy="72" r="4.200" fill="#3b2618"/><circle cx="62" cy="72" r="4.200" fill="#3b2618"/><circle cx="42.400" cy="70.600" r="1.400" fill="#fff"/><circle cx="63.400" cy="70.600" r="1.400" fill="#fff"/>
+        <path d="M48 81h7l-3.500 4Z" fill="#f08aa6"/><path d="M45 88q3 3 6.500 0 3.500 3 6.500 0" fill="none" stroke="#c98a86" stroke-width="2.200" stroke-linecap="round"/>
+        <circle cx="33" cy="84" r="5.500" fill="#f7a9b4" opacity=".6"/><circle cx="70" cy="84" r="5.500" fill="#f7a9b4" opacity=".6"/>
+        <ellipse cx="42" cy="122" rx="11" ry="6" fill="#fff" stroke="#c9b3a6" stroke-width="3"/><ellipse cx="68" cy="122" rx="11" ry="6" fill="#fff" stroke="#c9b3a6" stroke-width="3"/>
+      </svg>
+    </button>
+    <svg class="fence" viewBox="0 0 400 110" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="#e0b98d" stroke="#a97c54" stroke-width="3" stroke-linejoin="round">
+        <rect x="-10" y="38" width="420" height="14" rx="7"/><rect x="-10" y="70" width="420" height="14" rx="7"/>
+        <path d="M22 110V26l12-12 12 12v84ZM112 110V26l12-12 12 12v84ZM262 110V26l12-12 12 12v84ZM352 110V26l12-12 12 12v84Z"/>
+      </g>
+      <g fill="#8ecb6d"><path d="M60 110c2-12 6-16 8-22 2 6 4 12 4 22ZM72 110c2-8 6-12 10-14-2 6-2 10-2 14ZM196 110c2-12 6-16 8-22 2 6 4 12 4 22ZM186 110c0-8-4-12-8-14 2 6 2 10 2 14ZM316 110c2-12 6-16 8-22 2 6 4 12 4 22Z"/></g>
+    </svg>
+  </div>
+  <div class="maybe">
+    <span class="snack sn1" aria-hidden="true"><svg viewBox="0 0 46 46"><path d="M14 16c8-4 18 2 22 22-18-2-28-10-26-18Z" fill="#f59a3c" stroke="#c96f1c" stroke-width="2" stroke-linejoin="round"/><path d="M14 16C10 12 8 6 10 2M14 16C10 14 4 14 2 16M15 15c0-5 2-9 6-11" fill="none" stroke="#3fae5a" stroke-width="3.500" stroke-linecap="round"/><path d="M20 22l5 2M24 29l5 2" stroke="#c96f1c" stroke-width="1.800" stroke-linecap="round"/></svg></span>
+    <span class="snack sn2" aria-hidden="true"><svg viewBox="0 0 46 46"><path d="M23 42C10 34 8 20 23 6c15 14 13 28 0 36Z" fill="#8ecb6d" stroke="#4f9a3a" stroke-width="2" stroke-linejoin="round"/><path d="M23 10v30M23 20l-6-5M23 27l7-6M23 33l-6-5" fill="none" stroke="#4f9a3a" stroke-width="1.800" stroke-linecap="round"/></svg></span>
+    <p>かわいいアニマルたちに<br>えさをあげられるかも<svg class="heart" role="img" aria-label="ピンクのハート"><use href="#i-heart"/></svg></p>
+  </div>
+  <div class="animals-end" aria-hidden="true"><svg viewBox="0 0 400 70" preserveAspectRatio="none"><path d="M0 70V30C60 54 120 56 180 36S300 2 400 30V70Z" fill="#081a3f"/></svg></div>
+</section>
+
+<!-- ================= 05 Christmas Finale ================= -->
+<section class="sec finale" id="finale">
+  <svg class="stars" viewBox="0 0 400 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="#fff"><circle cx="106" cy="39" r="1.3" opacity="0.80"/><circle cx="113" cy="463" r="1.3" opacity="0.92"/><circle cx="103" cy="153" r="1.3" opacity="0.74" class="tw"/><circle cx="311" cy="202" r="2.2" opacity="0.60" class="tw tw2"/><circle cx="183" cy="170" r="2.2" opacity="0.58" class="tw tw3"/><circle cx="115" cy="286" r="1.3" opacity="0.56"/><circle cx="92" cy="293" r="1.3" opacity="0.59"/><circle cx="386" cy="215" r="2.2" opacity="0.79" class="tw"/><circle cx="124" cy="235" r="1.7" opacity="0.86" class="tw tw2"/><circle cx="393" cy="299" r="1.1" opacity="0.72" class="tw tw3"/><circle cx="395" cy="406" r="2.2" opacity="0.68"/><circle cx="144" cy="239" r="1.1" opacity="0.61"/><circle cx="325" cy="418" r="0.9" opacity="0.48" class="tw"/><circle cx="384" cy="453" r="2.2" opacity="0.90" class="tw tw2"/><circle cx="47" cy="433" r="1.7" opacity="0.57" class="tw tw3"/><circle cx="66" cy="117" r="1.3" opacity="0.93"/><circle cx="123" cy="279" r="1.1" opacity="0.63"/><circle cx="141" cy="436" r="1.7" opacity="0.84" class="tw"/><circle cx="269" cy="360" r="1.1" opacity="0.68" class="tw tw2"/><circle cx="213" cy="254" r="2.2" opacity="0.56" class="tw tw3"/><circle cx="236" cy="157" r="1.3" opacity="0.82"/><circle cx="208" cy="212" r="1.3" opacity="0.66"/><circle cx="68" cy="315" r="1.3" opacity="0.66" class="tw"/><circle cx="54" cy="255" r="2.2" opacity="0.92" class="tw tw2"/><circle cx="220" cy="498" r="0.9" opacity="0.66" class="tw tw3"/><circle cx="74" cy="114" r="1.3" opacity="0.73"/><circle cx="75" cy="226" r="1.7" opacity="0.65"/><circle cx="353" cy="14" r="1.3" opacity="0.58" class="tw"/><circle cx="396" cy="245" r="1.3" opacity="0.94" class="tw tw2"/><circle cx="141" cy="51" r="0.9" opacity="0.45" class="tw tw3"/><circle cx="75" cy="373" r="2.2" opacity="0.87"/><circle cx="137" cy="32" r="1.7" opacity="0.82"/><circle cx="194" cy="291" r="2.2" opacity="0.57" class="tw"/><circle cx="374" cy="343" r="0.9" opacity="0.91" class="tw tw2"/><circle cx="262" cy="341" r="1.3" opacity="0.87" class="tw tw3"/><circle cx="95" cy="395" r="1.3" opacity="0.70"/><circle cx="15" cy="446" r="1.1" opacity="0.76"/><circle cx="252" cy="177" r="1.1" opacity="0.73" class="tw"/><circle cx="74" cy="75" r="1.3" opacity="0.58" class="tw tw2"/><circle cx="16" cy="392" r="1.7" opacity="0.50" class="tw tw3"/><circle cx="145" cy="186" r="0.9" opacity="0.92"/><circle cx="371" cy="264" r="0.9" opacity="0.89"/><circle cx="181" cy="476" r="1.7" opacity="0.74" class="tw"/><circle cx="261" cy="20" r="2.2" opacity="0.95" class="tw tw2"/><circle cx="338" cy="137" r="1.1" opacity="0.70" class="tw tw3"/><circle cx="49" cy="392" r="1.3" opacity="0.47"/></g><use href="#i-spark" x="52" y="96" width="16" height="16" class="tw tw2"/><use href="#i-spark" x="338" y="210" width="12" height="12" class="tw tw2"/><use href="#i-spark" x="120" y="300" width="10" height="10" class="tw tw2"/></svg>
+  <div class="garland" aria-hidden="true"><svg viewBox="0 0 400 46"><path d="M-12 5Q40.0 38 92 5M92 5Q146.0 38 200 5M200 5Q254.0 38 308 5M308 5Q360.0 38 412 5" fill="none" stroke="#061633" stroke-width="2.2"/><circle class="tw tw3" cx="8.8" cy="24.6" r="12" fill="#57d38c" opacity=".28"/><rect x="6.2" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="8.8" cy="25.1" rx="5" ry="6.8" fill="#57d38c"/><circle class="tw" cx="40.0" cy="30.5" r="12" fill="#ff8fc6" opacity=".28"/><rect x="37.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="40.0" cy="31.0" rx="5" ry="6.8" fill="#ff8fc6"/><circle class="tw tw2" cx="71.2" cy="24.6" r="12" fill="#59b8ff" opacity=".28"/><rect x="68.6" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="71.2" cy="25.1" rx="5" ry="6.8" fill="#59b8ff"/><circle class="tw tw3" cx="113.6" cy="24.6" r="12" fill="#ff5a5a" opacity=".28"/><rect x="111.0" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="113.6" cy="25.1" rx="5" ry="6.8" fill="#ff5a5a"/><circle class="tw" cx="146.0" cy="30.5" r="12" fill="#ffd34d" opacity=".28"/><rect x="143.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="146.0" cy="31.0" rx="5" ry="6.8" fill="#ffd34d"/><circle class="tw tw2" cx="178.4" cy="24.6" r="12" fill="#57d38c" opacity=".28"/><rect x="175.8" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="178.4" cy="25.1" rx="5" ry="6.8" fill="#57d38c"/><circle class="tw tw3" cx="221.6" cy="24.6" r="12" fill="#ff8fc6" opacity=".28"/><rect x="219.0" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="221.6" cy="25.1" rx="5" ry="6.8" fill="#ff8fc6"/><circle class="tw" cx="254.0" cy="30.5" r="12" fill="#59b8ff" opacity=".28"/><rect x="251.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="254.0" cy="31.0" rx="5" ry="6.8" fill="#59b8ff"/><circle class="tw tw2" cx="286.4" cy="24.6" r="12" fill="#ff5a5a" opacity=".28"/><rect x="283.8" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="286.4" cy="25.1" rx="5" ry="6.8" fill="#ff5a5a"/><circle class="tw tw3" cx="328.8" cy="24.6" r="12" fill="#ffd34d" opacity=".28"/><rect x="326.2" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw3" cx="328.8" cy="25.1" rx="5" ry="6.8" fill="#ffd34d"/><circle class="tw" cx="360.0" cy="30.5" r="12" fill="#57d38c" opacity=".28"/><rect x="357.4" y="20.5" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw" cx="360.0" cy="31.0" rx="5" ry="6.8" fill="#57d38c"/><circle class="tw tw2" cx="391.2" cy="24.6" r="12" fill="#ff8fc6" opacity=".28"/><rect x="388.6" y="14.6" width="5.2" height="4.5" rx="1" fill="#061633"/><ellipse class="tw tw2" cx="391.2" cy="25.1" rx="5" ry="6.8" fill="#ff8fc6"/></svg></div>
+  <button class="flake" type="button" style="left:10%;top:17%;--s:26px;--d:9s;color:#fff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <button class="flake" type="button" style="left:91%;top:13%;--s:20px;--d:12s;color:#cfe4ff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <button class="flake" type="button" style="left:86%;top:40%;--s:30px;--d:10s;color:#fff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <button class="flake" type="button" style="left:8%;top:44%;--s:18px;--d:8s;color:#cfe4ff" aria-label="雪の結晶"><svg><use href="#i-flake"/></svg></button>
+  <div class="fin-copy">
+    <p class="fin-date">12/13<span>（日）</span></p>
+    <p class="fin-msg">みんなでクリスマスを楽しもう！</p>
+  </div>
+  <div class="stage">
+    <div class="tree" aria-hidden="true">
+      <svg viewBox="0 0 240 300">
+        
+        <rect x="106" y="262" width="28" height="34" rx="5" fill="#8a5a2b" stroke="#5c3a17" stroke-width="3"/>
+        <path d="M120 34 168 104H146l42 60H160l48 70H32l48-70H52l42-60H72Z" fill="url(#gGreen)" stroke="#0b3f29" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M95 100c16 8 34 8 50 0M72 160c30 14 66 14 96 0M54 228c42 16 90 16 132 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".92"/>
+        <g>
+          <circle cx="104" cy="84" r="6" fill="#ff6b6b" class="tw"/><circle cx="138" cy="92" r="6" fill="#7fd0ff" class="tw tw2"/><circle cx="120" cy="124" r="6" fill="#fff3a8" class="tw tw3"/><circle cx="88" cy="142" r="6" fill="#ff9fce" class="tw tw2"/><circle cx="152" cy="146" r="6" fill="#ff6b6b" class="tw"/><circle cx="110" cy="184" r="6" fill="#7fd0ff" class="tw tw3"/><circle cx="142" cy="200" r="6" fill="#fff3a8" class="tw"/><circle cx="74" cy="206" r="6" fill="#ff6b6b" class="tw tw2"/><circle cx="172" cy="212" r="6" fill="#ff9fce" class="tw tw3"/><circle cx="126" cy="64" r="5" fill="#fff3a8" class="tw tw2"/>
+        </g>
+        <circle cx="120" cy="26" r="24" fill="#fff3a8" opacity=".3" class="tw"/>
+        <use href="#i-star" x="92" y="-2" width="56" height="56" class="topstar"/>
+      </svg>
+    </div>
+    <svg class="mound m1" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 200V44C70 14 140 8 200 20s140 6 200-14V200Z" fill="#dce9fa"/></svg>
+    <div class="row">
+      <button class="chr chr-bird" type="button" data-chr="bird" aria-label="とり（タップすると よろこぶよ）" style="--ar:0.7929;--wa:-13deg;--wd:-0.66s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/bird.webp" width="444" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/bird-arm.webp" width="444" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:68% 50%"><svg viewBox="0 0 707 892" aria-hidden="true"><g transform="translate(252 108) rotate(-20) scale(2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g transform="translate(476 112) rotate(20) scale(-2.5 2.5)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#5c3a17" stroke-width="10.5"/><path d="M0 0C-1-12-6-22-4-37M-2-14C-9-16-14-22-14-30M-4-26C1-29 5-33 5-40" stroke="#b9854a" stroke-width="6"/></g><g class="dangle"><path d="M282 392 330 404 320 522 272 512Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M276 478 322 488M274 496 321 506" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M258 352C320 394 400 394 464 350L470 388C400 434 318 434 252 392Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="304" cy="400" rx="27" ry="21" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5"/><g fill="#7384a8" stroke="#33415f" stroke-width="4"><g transform="rotate(0 326 212)"><ellipse class="lid" cx="326" cy="212" rx="19" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g><g transform="rotate(0 403 214)"><ellipse class="lid" cx="403" cy="214" rx="18" ry="37" style="--bd:4.4s;--bl:-2.2s"/></g></g></svg></span></span></span></button>
+      <button class="chr chr-penguin" type="button" data-chr="penguin" aria-label="ペンギン（タップすると よろこぶよ）" style="--ar:0.6750;--wa:-14deg;--wd:-1.90s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/penguin.webp" width="378" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/penguin-arm.webp" width="378" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:80.5% 51%"><svg viewBox="0 0 616 912" aria-hidden="true"><g transform="translate(300 60) rotate(-12) scale(2.5) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><g class="dangle"><path d="M396 518 446 508 462 632 412 642Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><path d="M409 596 458 586M411 616 461 606" stroke="#fff" stroke-width="7" opacity=".9"/></g><path d="M176 470C250 514 380 518 462 464L470 500C385 556 248 552 170 506Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5" stroke-linejoin="round"/><ellipse cx="424" cy="512" rx="28" ry="22" fill="url(#gGreen)" stroke="#0f5132" stroke-width="4.5"/><path d="M214 494C270 524 360 528 430 490" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="14 22" opacity=".85"/><g fill="#dbeaf8" stroke="#4a7fb5" stroke-width="3.5"><g transform="rotate(0 320 329)"><ellipse class="lid" cx="320" cy="329" rx="18" ry="28" style="--bd:5.8s;--bl:-3.1s"/></g><g transform="rotate(0 412 326)"><ellipse class="lid" cx="412" cy="326" rx="14" ry="26" style="--bd:5.8s;--bl:-3.1s"/></g></g></svg></span></span></span></button>
+      <button class="chr chr-rabbit" type="button" data-chr="rabbit" aria-label="ウサギ（タップすると よろこぶよ）" style="--ar:0.4911;--wa:-16deg;--wd:-1.89s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/rabbit.webp" width="275" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/rabbit-arm.webp" width="275" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:69.5% 61.5%"><svg viewBox="0 0 445 906" aria-hidden="true"><path d="M190 524C222 548 272 548 300 522C334 534 360 562 372 606C330 632 285 640 247 640C206 640 158 632 118 606C130 564 158 534 190 524Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#b9c6da" stroke-width="27" stroke-linecap="round"/><path d="M122 610C160 634 206 642 247 642C285 642 330 634 368 610" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/><g transform="translate(247 560) scale(1.0)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#f3dcbd" stroke="#a8845a" stroke-width="3.5"><g transform="rotate(0 188 388)"><ellipse class="lid" cx="188" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g><g transform="rotate(0 295 388)"><ellipse class="lid" cx="295" cy="388" rx="23" ry="40" style="--bd:4.1s;--bl:-1.7s"/></g></g></svg></span></span></span></button>
+      <button class="chr chr-squirrel" type="button" data-chr="squirrel" aria-label="リス（タップすると よろこぶよ）" style="--ar:0.6000"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/squirrel.webp" width="336" height="560" alt="" decoding="async" loading="lazy"><svg viewBox="0 0 558 929" aria-hidden="true"><g transform="translate(284 66) rotate(-9) scale(2.45) translate(-49 -66)"><path d="M12 62C14 30 38 6 62 8 80 10 92 24 96 44 90 36 82 33 74 35 80 44 84 54 85 62Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="2.6" stroke-linejoin="round"/><path d="M30 40C36 26 48 17 60 15" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/><circle class="pom" cx="95" cy="48" r="9.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2"/><rect x="3" y="56" width="92" height="21" rx="10.5" fill="url(#gFur)" stroke="#b9c6da" stroke-width="2.4"/></g><path d="M206 506C245 532 312 532 350 504L356 526C314 558 244 558 200 528Z" fill="url(#gFur)" stroke="#b9c6da" stroke-width="4" stroke-linejoin="round"/><circle cx="279" cy="602" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><circle cx="279" cy="660" r="13" fill="url(#gFur)" stroke="#b9c6da" stroke-width="3.5"/><g fill="#f19b4e" stroke="#8a4a1c" stroke-width="4"><g transform="rotate(4 196 320)"><ellipse class="lid" cx="196" cy="320" rx="40" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g><g transform="rotate(-4 320 320)"><ellipse class="lid" cx="320" cy="320" rx="37" ry="64" style="--bd:3.7s;--bl:-2.6s"/></g></g></svg></span></span></span></button>
+      <button class="chr chr-panda" type="button" data-chr="panda" aria-label="パンダ（タップすると よろこぶよ）" style="--ar:0.7768;--wa:15deg;--wd:-0.08s"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/panda.webp" width="435" height="560" alt="" decoding="async" loading="lazy"><img class="chr-arm" src="img/panda-arm.webp" width="435" height="560" alt="" decoding="async" loading="lazy" style="transform-origin:27.5% 55.5%"><svg viewBox="0 0 682 878" aria-hidden="true"><path d="M232 428C290 458 392 458 452 428C486 438 512 464 528 502C476 538 404 550 341 550C278 550 206 538 154 502C170 464 196 438 232 428Z" fill="url(#gRed)" stroke="#8f1b22" stroke-width="4.5" stroke-linejoin="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#b9c6da" stroke-width="29" stroke-linecap="round"/><path d="M158 506C208 540 278 552 341 552C404 552 474 540 524 506" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/><g transform="translate(341 470) scale(1.25)"><path d="M-4 4-17 28-6 25 0 10ZM4 4 17 28 6 25 0 10Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.4" stroke-linejoin="round"/><path d="M0 0C-16-18-40-16-40 0s24 18 40 0ZM0 0C16-18 40-16 40 0S16 18 0 0Z" fill="url(#gGreen)" stroke="#0f5132" stroke-width="2.6" stroke-linejoin="round"/><circle r="8" fill="#126640" stroke="#0f5132" stroke-width="2.4"/><g class="dangle"><circle cy="19" r="9" fill="url(#gGold)" stroke="#b7862a" stroke-width="2.4"/><path d="M-5 21h10M0 21v6" stroke="#b7862a" stroke-width="2" stroke-linecap="round"/></g></g><g fill="#0e1622" stroke="#8894a8" stroke-width="3"><g transform="rotate(0 267 262)"><ellipse class="lid" cx="267" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g><g transform="rotate(0 407 262)"><ellipse class="lid" cx="407" cy="262" rx="33" ry="48" style="--bd:4.9s;--bl:-0.4s"/></g></g></svg></span></span></span></button>
+      <button class="chr chr-robot" type="button" data-chr="robot" aria-label="ロボット（タップすると よろこぶよ）" style="--ar:0.6393"><span class="chr-in"><span class="chr-idle"><span class="chr-tap"><img src="img/robot.webp" width="358" height="560" alt="" decoding="async" loading="lazy"><svg viewBox="0 0 586 917" aria-hidden="true"><circle cx="226" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="250" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="274" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="298" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="322" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="346" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="370" cy="404" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="394" cy="408" r="15" fill="url(#gGreen)" stroke="#0f5132" stroke-width="3"/><circle cx="238" cy="398" r="4" fill="#F4C75B"/><circle cx="286" cy="402" r="4" fill="#F4C75B"/><circle cx="334" cy="398" r="4" fill="#F4C75B"/><circle cx="382" cy="402" r="4" fill="#F4C75B"/><path d="M172 552C200 672 430 680 480 558" fill="none" stroke="#0f5132" stroke-width="5" stroke-linecap="round"/><circle class="tw" cx="186" cy="601" r="24" fill="#ff5a5a" opacity=".3"/><rect x="180" y="582" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="186" cy="602" rx="11.5" ry="15" fill="#ff5a5a" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="241" cy="645" r="24" fill="#ffd34d" opacity=".3"/><rect x="235" y="626" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="241" cy="646" rx="11.5" ry="15" fill="#ffd34d" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw3" cx="318" cy="662" r="24" fill="#59b8ff" opacity=".3"/><rect x="312" y="643" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw3" cx="318" cy="663" rx="11.5" ry="15" fill="#59b8ff" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw" cx="397" cy="649" r="24" fill="#ff8fc6" opacity=".3"/><rect x="391" y="630" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw" cx="397" cy="650" rx="11.5" ry="15" fill="#ff8fc6" stroke="rgba(0,0,0,.25)" stroke-width="2"/><circle class="tw tw2" cx="460" cy="607" r="24" fill="#57d38c" opacity=".3"/><rect x="454" y="588" width="12" height="9" rx="2" fill="#0f5132"/><ellipse class="tw tw2" cx="460" cy="608" rx="11.5" ry="15" fill="#57d38c" stroke="rgba(0,0,0,.25)" stroke-width="2"/><g transform="translate(311 -24) scale(6)"><circle r="12" fill="#fff3a8" opacity=".35" class="tw"/><g class="topstar"><path d="M0.00 -10.50L2.70 -3.72L9.99 -3.24L4.37 1.42L6.17 8.49L0.00 4.60L-6.17 8.49L-4.37 1.42L-9.99 -3.24L-2.70 -3.72Z" fill="url(#gGold)" stroke="#b7862a" stroke-width="1" stroke-linejoin="round"/></g></g><g fill="#d3dcea" stroke="#3a6fc0" stroke-width="5"><g transform="rotate(0 224 218)"><ellipse class="lid" cx="224" cy="218" rx="47" ry="53" style="--bd:5.2s;--bl:-1.0s"/></g><g transform="rotate(0 400 222)"><ellipse class="lid" cx="400" cy="222" rx="48" ry="51" style="--bd:5.2s;--bl:-1.0s"/></g></g></svg></span></span></span></button>
+    </div>
+    <svg class="mound m2" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60V30C50 12 100 34 160 26s90-18 140-6 70 12 100-2V60Z" fill="#FFF9F0"/></svg>
+    <div class="pres p1" aria-hidden="true"><svg viewBox="0 0 60 60"><use href="#i-gift" width="60" height="60"/></svg></div>
+    <div class="pres p2" aria-hidden="true"><svg viewBox="0 0 60 60" style="--gc:#2fa36b;--gr:#fff"><use href="#i-gift" width="60" height="60"/></svg></div>
+    <div class="pres p3" aria-hidden="true"><svg viewBox="0 0 60 60" style="--gc:#2f7fd1;--gr:#F4C75B"><use href="#i-gift" width="60" height="60"/></svg></div>
+  </div>
+  <footer class="foot"><strong>Christmas Event</strong>2026年12月13日（日）</footer>
+</section>
+</main>
+
+</div>
+<div class="fx" id="fx" aria-hidden="true"></div>
+
+<script>
+/* 管理用の設定データ。null の項目は未入力のため、画面には表示しません。 */
+var EVENT_INFO = {
+  name: 'Christmas Event',
+  date: '2026-12-13',
+  time: null,          // 開催時間（未入力）
+  place: null,         // 場所（未入力）
+  fee: null,           // 参加費（未入力）
+  belongings: null,    // 持ち物（未入力）
+  reservation: null    // 予約方法（未入力）
+};
+
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+  root.classList.add('js');
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, c) { return (c || d).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); };
+  var fx = $('#fx');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function replay(el, cls) { el.classList.remove(cls); void el.getBoundingClientRect(); el.classList.add(cls); }
+  function once(el, cls, ms) { replay(el, cls); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove(cls); }, ms); }
+
+  /* ---- sparkle burst (transform/opacity only) ---- */
+  function burst(x, y, kind, n) {
+    if (RM || !fx.animate) return;
+    n = n || 9;
+    for (var i = 0; i < n; i++) {
+      var s = d.createElement('i');
+      var k = kind === 'mix' ? (i % 2 ? 'star' : 'spark') : kind;
+      s.innerHTML = '<svg><use href="#i-' + k + '"/></svg>';
+      s.style.left = x + 'px'; s.style.top = y + 'px';
+      fx.appendChild(s);
+      var a = Math.random() * Math.PI * 2, r = 34 + Math.random() * 56;
+      var dx = Math.cos(a) * r, dy = Math.sin(a) * r - 22, sc = .5 + Math.random() * .8, rot = (Math.random() * 240 - 120);
+      var an = s.animate([
+        { transform: 'translate(0,0) scale(.2)', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sc + ') rotate(' + rot + 'deg)', opacity: 1, offset: .55 },
+        { transform: 'translate(' + dx * 1.15 + 'px,' + (dy + 26) + 'px) scale(' + sc * .5 + ') rotate(' + rot * 1.4 + 'deg)', opacity: 0 }
+      ], { duration: 700 + Math.random() * 400, easing: 'cubic-bezier(.2,.7,.3,1)' });
+      an.onfinish = (function (el) { return function () { el.remove(); }; })(s);
+    }
+  }
+  function center(el) { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2 + window.pageXOffset, y: r.top + r.height / 2 + window.pageYOffset, top: r.top + window.pageYOffset, w: r.width }; }
+  function say(el, text) {
+    var c = center(el), b = d.createElement('b');
+    b.textContent = text;
+    var px = Math.max(70, Math.min(d.body.clientWidth - 70, c.x));
+    b.style.left = px + 'px'; b.style.top = (c.top - 4) + 'px';
+    fx.appendChild(b);
+    if (b.animate && !RM) b.animate([{ opacity: 0, transform: 'translate(-50%,-80%) scale(.5)' }, { opacity: 1, transform: 'translate(-50%,-100%) scale(1)', offset: .2 }, { opacity: 1, transform: 'translate(-50%,-104%) scale(1)', offset: .8 }, { opacity: 0, transform: 'translate(-50%,-125%) scale(.9)' }], { duration: 1500, easing: 'ease-out' }).onfinish = function () { b.remove(); };
+    else setTimeout(function () { b.remove(); }, 1400);
+  }
+
+  /* ---- characters: tap to wave ---- */
+  var LINES = {
+    robot: ['ピポパ！ メリークリスマス！', 'たのしみ ジュウデン 100%！'],
+    bird: ['やっほー！', 'トナカイに なってみたよ！'],
+    penguin: ['まってるよ！', 'メリークリスマス！'],
+    panda: ['いっしょに あそぼうね', 'わくわく するね！'],
+    rabbit: ['たのしみだね！', '12/13 だよ！'],
+    squirrel: ['わーい！', 'サンタさんの きぶん！']
+  }, lineIx = {};
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('.chr,.flake,.ani') : null;
+    if (!t) return;
+    var c = center(t);
+    if (t.classList.contains('chr')) {
+      once(t, 'tapped', 950);
+      var n = t.getAttribute('data-chr'), L = LINES[n] || ['メリークリスマス！'];
+      lineIx[n] = ((lineIx[n] || 0) + 1) % L.length;
+      say(t, L[lineIx[n]]);
+      burst(c.x, c.top + 10, 'mix', 7);
+    } else if (t.classList.contains('flake')) {
+      once(t, 'zap', 720); burst(c.x, c.y, 'spark', 10);
+    } else {
+      once(t, 'boing', 620); burst(c.x, c.top + 6, 'heart', 5);
+    }
+  });
+
+  /* ---- picture book ---- */
+  var book = $('#book');
+  $('.leaf', book).addEventListener('click', function () { book.classList.toggle('closed'); });
+
+  /* ---- demos ---- */
+  var demos = {};
+
+  // 1. ball toss
+  var fly = $('#fly'), basket = $('.basket'), BALLS = ['#D92F32', '#F4C75B', '#2fa36b', '#2f7fd1', '#f08ab8'], bi = 0;
+  function throwBall(delay) {
+    if (RM || !fly.animate) return;
+    var g = d.createElementNS(SVGNS, 'g'), c = d.createElementNS(SVGNS, 'circle'), h = d.createElementNS(SVGNS, 'circle');
+    c.setAttribute('r', 11); c.setAttribute('fill', BALLS[bi++ % BALLS.length]);
+    h.setAttribute('r', 3.2); h.setAttribute('cx', -4); h.setAttribute('cy', -4); h.setAttribute('fill', '#fff'); h.setAttribute('opacity', '.55');
+    var inner = d.createElementNS(SVGNS, 'g'); inner.appendChild(c); inner.appendChild(h); g.appendChild(inner); fly.appendChild(g);
+    var sx = 108 + Math.random() * 10, sy = 198, ex = 216 + Math.random() * 30, ey = 80 + Math.random() * 6, peak = 18 + Math.random() * 22, T = 880;
+    g.style.transform = 'translate(' + sx + 'px,0)'; inner.style.transform = 'translateY(' + sy + 'px)'; g.style.opacity = 0;
+    var o = { duration: T, delay: delay || 0, fill: 'forwards' };
+    g.animate([{ transform: 'translate(' + sx + 'px,0)', opacity: 1 }, { transform: 'translate(' + ex + 'px,0)', opacity: 1 }], o);
+    inner.animate([
+      { transform: 'translateY(' + sy + 'px) rotate(0deg)', easing: 'cubic-bezier(.25,.6,.55,1)' },
+      { transform: 'translateY(' + peak + 'px) rotate(200deg)', offset: .6, easing: 'cubic-bezier(.45,0,.75,.45)' },
+      { transform: 'translateY(' + ey + 'px) rotate(330deg)' }
+    ], o).onfinish = function () {
+      once(basket, 'hit', 460);
+      while (fly.childNodes.length > 5) fly.removeChild(fly.firstChild);
+    };
+  }
+  demos.toss = function () { throwBall(200); throwBall(750); throwBall(1300); };
+  $('.c-toss .scene').addEventListener('click', function (e) { throwBall(0); burst(e.pageX, e.pageY, 'spark', 4); });
+
+  // 2. bingo
+  var bcard = $('.c-bingo'), cells = $$('.bingo-g .cell', bcard), WIN = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]], wasBingo = true;
+  function setCell(i, on) { var c = cells[i]; c.classList.toggle('on', on); if (c.tagName === 'BUTTON') c.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  function checkBingo(celebrate) {
+    cells.forEach(function (c) { c.classList.remove('win'); });
+    var any = false;
+    WIN.forEach(function (l) { if (l.every(function (i) { return cells[i].classList.contains('on'); })) { any = true; l.forEach(function (i) { cells[i].classList.add('win'); }); } });
+    bcard.classList.toggle('is-bingo', any);
+    if (any && !wasBingo && celebrate) { var c = center($('.bingo', bcard)); burst(c.x, c.y, 'mix', 16); }
+    wasBingo = any;
+  }
+  cells.forEach(function (c, i) { if (c.tagName !== 'BUTTON') return; c.addEventListener('click', function () { setCell(i, !c.classList.contains('on')); checkBingo(true); }); });
+  demos.bingo = function () {
+    if (RM) { checkBingo(false); return; }
+    [0, 8].forEach(function (i) { setCell(i, false); }); checkBingo(false);
+    setTimeout(function () { setCell(0, true); checkBingo(true); }, 500);
+    setTimeout(function () { setCell(8, true); checkBingo(true); }, 1150);
+  };
+  checkBingo(false);
+
+  // 3-5. css-driven demos
+  function cssDemo(card) { replay(card, 'run'); }
+  demos.rudolph = cssDemo; demos.key = cssDemo; demos.gift = cssDemo;
+  $('.c-rudolph .scene').addEventListener('click', function () {
+    var card = $('.c-rudolph'); cssDemo(card);
+    var c = center($('.nose', card)); setTimeout(function () { burst(c.x, c.y, 'spark', 8); }, 2100);
+  });
+  $('.c-key .scene').addEventListener('click', function (e) { once($('.kc-tap'), 'go', 1650); burst(e.pageX, e.pageY, 'heart', 5); });
+  $('.c-gift .scene').addEventListener('click', function () {
+    var card = $('.c-gift'); cssDemo(card);
+    var c = center($('.g-box', card)); setTimeout(function () { burst(c.x, c.top, 'mix', 14); }, 700);
+  });
+
+  /* ---- in-view: run animations only where visible ---- */
+  var secs = $$('.sec');
+  if ('IntersectionObserver' in window) {
+    var live = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); }); }, { rootMargin: '60px 0px' });
+    secs.forEach(function (s) { live.observe(s); });
+    var seen = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        seen.unobserve(e.target);
+        var f = demos[e.target.getAttribute('data-demo')]; if (f) f(e.target);
+      });
+    }, { threshold: .4 });
+    $$('[data-demo]').forEach(function (el) { seen.observe(el); });
+    if (!RM) {
+      book.classList.add('closed');
+      var bo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { bo.disconnect(); setTimeout(function () { book.classList.remove('closed'); }, 450); } }, { threshold: .6 });
+      bo.observe(book);
+    }
+  } else { secs.forEach(function (s) { s.classList.add('live'); }); }
+
+  /* ---- scroll parallax (hero + finale tree) ---- */
+  var hero = $('.hero'), tree = $('.tree'), stage = $('.stage'), ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var y = window.pageYOffset, hh = hero.offsetHeight;
+      if (y < hh) hero.style.setProperty('--sy', Math.max(0, y).toFixed(1));
+      var r = stage.getBoundingClientRect(), vh = window.innerHeight;
+      if (r.top < vh && r.bottom > 0) tree.style.setProperty('--py', (Math.max(0, Math.min(1, r.top / vh)) * 46).toFixed(1));
+    });
+  }
+  if (!RM) { window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+
+  /* ---- snow ---- */
+  var cv = $('#snow');
+  if (!RM && cv.getContext) {
+    var ctx = cv.getContext('2d'), W = 0, H = 0, DPR = 1, flakes = [], last = 0, run = true, raf = 0;
+    var size = function () {
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      var n = Math.round(Math.min(90, Math.max(36, W * H / 7000)));
+      while (flakes.length < n) flakes.push(mk(true));
+      flakes.length = n;
+    };
+    var mk = function (any) {
+      var z = Math.random();
+      return { x: Math.random() * W, y: any ? Math.random() * H : -8, r: .9 + z * 2.6, v: 16 + z * 44, p: Math.random() * 6.28, s: .4 + Math.random() * .9, a: .35 + z * .55 };
+    };
+    var tick = function (t) {
+      raf = 0; if (!run) return;
+      var dt = Math.min(.05, (t - last) / 1000 || 0); last = t;
+      ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#fff';
+      for (var i = 0; i < flakes.length; i++) {
+        var f = flakes[i];
+        f.y += f.v * dt; f.p += f.s * dt; f.x += Math.sin(f.p) * f.r * 9 * dt;
+        if (f.y > H + 8) { flakes[i] = f = mk(false); }
+        ctx.globalAlpha = f.a; ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.2832); ctx.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    size();
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 150); });
+    d.addEventListener('visibilitychange', function () { run = !d.hidden; if (run && !raf) { last = performance.now(); raf = requestAnimationFrame(tick); } });
+    raf = requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>
